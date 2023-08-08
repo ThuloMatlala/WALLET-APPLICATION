@@ -8,17 +8,19 @@ OUR OBJECTIVE IS TO CREATE A SIMPLE WALLET APPLICATION THAT CAN PERFORM THE FOLL
 - Balance of account
 - Credit of account
 - Debit of account
+  
 REQUIREMENTS:
-● C# API Endpoint
-● Authentication
-● Documentation
-● ESLinting
+- C# API Endpoint
+- Authentication
+- Documentation
+- ESLinting
+  
 BONUS POINTS:
-● Postman Collection
-● Microservices Architecture
-● Messaging Queue between Microservices
-● Redis
-● Angular for Visualization
-● Dockerization
-● Account Credit via ThirdParty API’s (Crypto etc) ** Super Bonus Points
+- Postman Collection
+- Microservices Architecture
+- Messaging Queue between Microservices
+- Redis
+- Angular for Visualization
+- Dockerization
+- Account Credit via ThirdParty API’s (Crypto etc) ** Super Bonus Points
 
