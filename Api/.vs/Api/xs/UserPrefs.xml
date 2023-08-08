@@ -1,3 +1,6 @@
-﻿<Properties>
+﻿<Properties StartupConfiguration="{F2927E91-3E26-4B35-9000-379C57056081}|Default">
+  <MonoDevelop.Ide.ItemProperties.Gateway FirstBuild="True" />
   <MultiItemStartupConfigurations />
+  <MonoDevelop.Ide.ItemProperties.UserManagementService FirstBuild="True" PreferredExecutionTarget="/Applications/Brave Browser.app" />
+  <MonoDevelop.Ide.ItemProperties.AccountManagementService FirstBuild="True" />
 </Properties>

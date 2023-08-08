@@ -1,0 +1,15 @@
+{
+  "version": 2,
+  "dgSpecHash": "wUbABJjI5L/YJXoR6nFcUiQv0LcaxO96MK9Fm6qpURAWZFw4s3AqNRk/1aCNVtOzN0eO1+MR04tC7OeqcjflYA==",
+  "success": true,
+  "projectFilePath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/AccountManagementService.csproj",
+  "expectedPackageFiles": [
+    "/Users/thulo/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",
+    "/Users/thulo/.nuget/packages/microsoft.openapi/1.2.3/microsoft.openapi.1.2.3.nupkg.sha512",
+    "/Users/thulo/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
+    "/Users/thulo/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
+    "/Users/thulo/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
+    "/Users/thulo/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+  ],
+  "logs": []
+}
