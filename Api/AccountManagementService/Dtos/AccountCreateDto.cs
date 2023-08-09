@@ -1,7 +1,7 @@
 ﻿
 namespace AccountManagementService.Dtos
 {
-	public class AccountWriteDto
+	public class AccountCreateDto
     {
         public int UserAccountId { get; set; }
         public decimal Balance { get; set; }
