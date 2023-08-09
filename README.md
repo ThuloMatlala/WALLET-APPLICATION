@@ -199,6 +199,9 @@ User authentication is implemented using JSON Web Tokens (JWT). The obtained tok
 
 The application follows a microservices architecture to achieve modularity and scalability. Each microservice handles a specific set of functionalities.
 
+1. User Account Service
+2. 
+
 ## Messaging Queue
 
 A messaging queue, such as RabbitMQ, is used for communication between microservices. This ensures loose coupling and asynchronous processing.
