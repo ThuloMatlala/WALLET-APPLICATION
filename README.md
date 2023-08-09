@@ -81,7 +81,7 @@ The wallet application follows a microservices architecture to enhance scalabili
 
 ### User Registration
 
-Endpoint: `POST /api/users/register`
+Endpoint: `POST /api/accounts/Register`
 
 Request Body:
 
@@ -102,7 +102,7 @@ Response:
 
 ### User Login
 
-Endpoint: `POST /api/users/login`
+Endpoint: `POST /api/accounts/login`
 
 Request Body:
 
@@ -211,7 +211,7 @@ Redis is integrated as an in-memory caching solution to enhance performance and 
 
 The Angular frontend provides users with a visual interface to interact with their wallet accounts, view transaction history, and perform account actions.
 
-I've opted to use [Tailwind CCS](https://tailwindcss.com/docs/guides/angular) - it being a short-hand styling framework will help get styling done without thinking about it too much
+[Tailwind CCS](https://tailwindcss.com/docs/guides/angular) was chosen for styling. It being a short-hand styling framework will help get styling done without thinking about it too much
 
 ## Dockerization
 

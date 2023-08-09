@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagementService", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{5AA415B6-AC82-45C0-BB83-0176B7B0FC96}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAccountManagementService", "UserAccountManagementService\UserAccountManagementService.csproj", "{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5AA415B6-AC82-45C0-BB83-0176B7B0FC96}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5AA415B6-AC82-45C0-BB83-0176B7B0FC96}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5AA415B6-AC82-45C0-BB83-0176B7B0FC96}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
