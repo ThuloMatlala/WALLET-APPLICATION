@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 namespace AuthorizationService.Controllers
 {
     [ApiController]
-    [Route("accounts/[controller]")]
+    [Route("api/accounts/[controller]")]
     public class LoginController : ControllerBase
     {
         private readonly ILogger<LoginController> _logger;

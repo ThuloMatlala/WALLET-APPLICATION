@@ -114,7 +114,7 @@ Response:
 
 ### Transaction History
 
-Endpoint: `GET /api/transactions`
+Endpoint: `GET /api/Account/{id}/transactions`
 
 Response:
 
@@ -132,7 +132,7 @@ Response:
 
 ### Account Balance
 
-Endpoint: `GET /api/account/balance`
+Endpoint: `GET /api/account/{id}/balance`
 
 Response:
 
@@ -144,7 +144,7 @@ Response:
 
 ### Credit Account
 
-Endpoint: `POST /api/account/credit`
+Endpoint: `POST /api/account/{id}/credit`
 
 Request Body:
 
@@ -164,7 +164,7 @@ Response:
 
 ### Debit Account
 
-Endpoint: `POST /api/account/debit`
+Endpoint: `POST /api/account/{id}/debit`
 
 Request Body:
 
