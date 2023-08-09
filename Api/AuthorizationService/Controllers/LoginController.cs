@@ -1,17 +1,17 @@
-﻿
+﻿using AuthorizationService.Dtos;
 using Microsoft.AspNetCore.Mvc;
-using AuthorizationService.Dtos;
+
+// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace AuthorizationService.Controllers
 {
     [ApiController]
     [Route("accounts/[controller]")]
-    public class RegisterController : ControllerBase
+    public class LoginController : ControllerBase
     {
+        private readonly ILogger<LoginController> _logger;
 
-        private readonly ILogger<RegisterController> _logger;
-
-        public RegisterController(ILogger<RegisterController> logger)
+        public LoginController(ILogger<LoginController> logger)
         {
             _logger = logger;
         }
@@ -24,11 +24,12 @@ namespace AuthorizationService.Controllers
 
 
 
-        [HttpPost(Name = "AccountRegistration")]
-        public string RegisterAccount(UserAccountCreateDto userAccountCreateDto)
+        [HttpPost(Name = "AccountLogin")]
+        public string AccountLogin(UserAccountCreateDto userAccountCreateDto)
         {
             return "Cheese";
 
         }
     }
 }
+
