@@ -1,8 +1,8 @@
 ﻿
-using AccountManagementService.Dtos;
 using Microsoft.AspNetCore.Mvc;
+using UserAccountManagementService.Dtos;
 
-namespace AccountManagementService.Controllers
+namespace UserAccountManagementService.Controllers
 {
     [ApiController]
     [Route("accounts/[controller]")]

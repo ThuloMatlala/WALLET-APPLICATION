@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7gwGuYwLBFsCWSz2GTwLUfEQAF4PuLwU8pQMUM+TAbhYNEym3i+DP8IXv39hT2l8rGGfnSScHDPtjvwPLVwdHA==",
+  "dgSpecHash": "vKx/rBayQLP6/kdAcYbysyppqMmVb3NdIePj/j1OI4ahtiHkwCzB4NOWppZZaKTKFgjm+CVsJC0MJyGCD0iQbQ==",
   "success": true,
-  "projectFilePath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/AccountManagementService.csproj",
+  "projectFilePath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/WalletAccountManagementService.csproj",
   "expectedPackageFiles": [
     "/Users/thulo/.nuget/packages/automapper/12.0.1/automapper.12.0.1.nupkg.sha512",
     "/Users/thulo/.nuget/packages/automapper.extensions.microsoft.dependencyinjection/12.0.1/automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
