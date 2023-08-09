@@ -11,9 +11,8 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 Console.WriteLine($"--> Environment: {builder.Environment.EnvironmentName}");
-Console.WriteLine($"--> Using Sql Server DB");
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
-builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("WalletConn")));
+builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("UserAuthConn")));
 
 var app = builder.Build();
 

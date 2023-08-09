@@ -1,4 +1,5 @@
-﻿using AccountManagementService.Models;
+﻿using System.Transactions;
+using AccountManagementService.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthorizationService.Data
@@ -9,6 +10,7 @@ namespace AuthorizationService.Data
         {
         }
         public DbSet<UserAccount> UserAccounts { get; set; }
+        public DbSet<Transaction> Transactions { get; set; }
     }
 }
 

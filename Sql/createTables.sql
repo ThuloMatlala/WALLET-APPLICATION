@@ -1,7 +1,13 @@
 USE MASTER
 
-IF DB_ID('employees_db') IS NULL
+IF DB_ID('account_db') IS NULL
 BEGIN
-  CREATE DATABASE wallet_app_db
+  CREATE DATABASE account_db
+END
+go
+
+IF DB_ID('user_auth_db') IS NULL
+BEGIN
+  CREATE DATABASE user_auth_db
 END
 go
