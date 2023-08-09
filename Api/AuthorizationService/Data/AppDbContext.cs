@@ -8,7 +8,7 @@ namespace AuthorizationService.Data
 		public AppDbContext(DbContextOptions<AppDbContext> opt) : base(opt)
         {
         }
-        public DbSet<UserAccount> Platforms { get; set; }
+        public DbSet<UserAccount> UserAccounts { get; set; }
     }
 }
 

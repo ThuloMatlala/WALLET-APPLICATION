@@ -1,8 +1,8 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
-using UserAccountManagementService.Dtos;
+using AuthorizationService.Dtos;
 
-namespace UserAccountManagementService.Controllers
+namespace AuthorizationService.Controllers
 {
     [ApiController]
     [Route("accounts/[controller]")]
@@ -16,12 +16,19 @@ namespace UserAccountManagementService.Controllers
             _logger = logger;
         }
 
+        //[HttpPost(Name = "UserAccountRegistration")]
+        //public IEnumerable<UserAccountReadDto> RegisterUserAccount(UserAccountCreateDto userAccountCreateDto)
+        //{
+        //    return new UserAccountReadDto();
+        //}
+
+
+
         [HttpPost(Name = "UserAccountRegistration")]
-        public IEnumerable<UserAccountReadDto> RegisterUserAccount(UserAccountCreateDto userAccountCreateDto)
+        public string RegisterUserAccount(UserAccountCreateDto userAccountCreateDto)
         {
+            return "Cheese";
 
         }
-
     }
 }
-

@@ -1,8 +1,8 @@
 ﻿using AccountManagementService.Models;
 using AutoMapper;
-using UserAccountManagementService.Dtos;
+using AuthorizationService.Dtos;
 
-namespace UserAccountManagementService.Profiles
+namespace AuthorizationService.Profiles
 {
 	public class UserAccountProfiles : Profile
     {

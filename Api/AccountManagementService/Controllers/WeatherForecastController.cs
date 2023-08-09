@@ -1,5 +1,4 @@
-﻿using AccountManagementService.Dtos;
-using AccountManagementService.Models;
+﻿
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountManagementService.Controllers;
