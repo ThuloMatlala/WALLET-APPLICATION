@@ -51,3 +51,18 @@ services:
       - rabbitmq
       - redis
       # - gateway
+  
+  account-management-service:
+    image: thulomaepaa/bas-account-management-service:latest
+    container_name: account-management-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "49279:49279"
+    networks:
+      - main
+    depends_on:
+      - azure-sql-edge
+      - rabbitmq
+      - redis
+      # - gateway

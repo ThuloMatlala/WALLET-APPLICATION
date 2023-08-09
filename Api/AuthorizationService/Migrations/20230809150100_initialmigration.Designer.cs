@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AuthorizationService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230809114933_initialmigration")]
+    [Migration("20230809150100_initialmigration")]
     partial class initialmigration
     {
         /// <inheritdoc />

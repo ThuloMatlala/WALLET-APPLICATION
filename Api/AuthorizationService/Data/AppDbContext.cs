@@ -10,7 +10,6 @@ namespace AuthorizationService.Data
         {
         }
         public DbSet<UserAccount> UserAccounts { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
     }
 }
 
