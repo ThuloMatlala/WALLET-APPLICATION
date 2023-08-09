@@ -11,7 +11,6 @@ namespace AccountManagementService.Models
         public int UserAccountId { get; set; }
         [Required]
         public decimal Balance { get; set; }
-        [Required]
         public List<Transaction> Transactions { get; set; }
 
     }
