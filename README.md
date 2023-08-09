@@ -211,6 +211,8 @@ Redis is integrated as an in-memory caching solution to enhance performance and 
 
 The Angular frontend provides users with a visual interface to interact with their wallet accounts, view transaction history, and perform account actions.
 
+I've opted to use [Tailwind CCS](https://tailwindcss.com/docs/guides/angular) - it being a short-hand styling framework will help get styling done without thinking about it too much
+
 ## Dockerization
 
 Docker containers are used to ensure consistent deployment across different environments. Containers include the C# API, Angular frontend,
