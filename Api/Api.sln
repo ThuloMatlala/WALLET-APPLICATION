@@ -3,11 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 25.0.1706.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WalletAccountManagementService", "AccountManagementService\WalletAccountManagementService.csproj", "{9652AF73-2A5F-4C76-B2D8-4D671D73262C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AccountManagementService", "AccountManagementService\AccountManagementService.csproj", "{9652AF73-2A5F-4C76-B2D8-4D671D73262C}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gateway", "Gateway\Gateway.csproj", "{5AA415B6-AC82-45C0-BB83-0176B7B0FC96}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserAccountManagementService", "UserAccountManagementService\UserAccountManagementService.csproj", "{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthorizationService", "UserAccountManagementService\AuthorizationService.csproj", "{AB06DA5B-7CA2-437D-BC7F-3CD93D640400}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

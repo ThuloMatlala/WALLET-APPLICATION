@@ -743,9 +743,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/WalletAccountManagementService.csproj",
-      "projectName": "WalletAccountManagementService",
-      "projectPath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/WalletAccountManagementService.csproj",
+      "projectUniqueName": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/AccountManagementService.csproj",
+      "projectName": "AccountManagementService",
+      "projectPath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/AccountManagementService.csproj",
       "packagesPath": "/Users/thulo/.nuget/packages/",
       "outputPath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/obj/",
       "projectStyle": "PackageReference",

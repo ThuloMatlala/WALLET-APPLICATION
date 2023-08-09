@@ -1,3 +1,13 @@
+volumes:
+      rabbitmq_data:
+      sqlserver_data:
+        
+networks:
+      main:
+        driver: bridge
+      sqlserver:
+        driver: bridge
+
 services:
   rabbitmq:
     image: rabbitmq:3.9.11-management-alpine
@@ -5,25 +15,26 @@ services:
     ports:
       - "5672:5672"
       - "15672:15672"
-    # networks:
-    #   - spring
+    networks:
+      - main
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq/data
   
   azure-sql-edge:
     image: mcr.microsoft.com/azure-sql-edge
-    container_name: azure-sql-edge-container
+    container_name: azure-sql-edge
     environment:
-      SA_PASSWORD: MyStrong@Passw0rd
+      MSSQL_SA_PASSWORD: Str#ng_Passw#rd
       ACCEPT_EULA: Y
     ports:
-      - "1433:1433"
+      - "4200:1433"
+    networks:
+      - sqlserver
+    volumes:
+      - sqlserver_data:/var/lib/azsql/data
       
   redis:
     image: redis
     container_name: redis-container
     ports:
       - "6379:6379"
-
-volumes:
-      rabbitmq_data:

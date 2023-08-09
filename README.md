@@ -55,27 +55,18 @@ The wallet application follows a microservices architecture to enhance scalabili
    git clone https://github.com/yourcompany/wallet-app.git
    cd WALLET-APPLICATION
    ```
-2. Build and run the C# API Endpoint:
+2. Start containers/services:
 
-   ```bash
-   cd api
-   dotnet restore
-   dotnet run
-   ```
-3. Build and run the Angular Frontend:
-
-   ```bash
-   cd frontend
-   npm install
-   ng serve
-   ```
-4. Start containers/services:
-
-   Please run these from the project root where the docker-compose.yml file is lcoated
+   With a docker deamon (I used Docker Desktop running) please run these from the project root where the docker-compose.yml file is lcoated
 
    ```bash
    docker-compose up
    ```
+
+   3. Create wallet_app_db database
+
+   - Use this string to connect to your the azure-sql instance running in dokcer from your favourite instance. Feel free so get connection details from this string if you IDE doesn't support strings : Server=localhost,4200; ``User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False``
+   - Go the the *Sql* folder and run the *createTables* script
 
 ## API Endpoints
 
@@ -200,7 +191,8 @@ User authentication is implemented using JSON Web Tokens (JWT). The obtained tok
 The application follows a microservices architecture to achieve modularity and scalability. Each microservice handles a specific set of functionalities.
 
 1. User Account Service
-2. 
+2. Wallet Account Management Service
+3. 
 
 ## Messaging Queue
 
