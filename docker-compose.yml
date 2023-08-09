@@ -5,8 +5,6 @@ volumes:
 networks:
       main:
         driver: bridge
-      sqlserver:
-        driver: bridge
 
 services:
   rabbitmq:
@@ -29,7 +27,7 @@ services:
     ports:
       - "4200:1433"
     networks:
-      - sqlserver
+      - main
     volumes:
       - sqlserver_data:/var/lib/azsql/data
       
@@ -38,3 +36,18 @@ services:
     container_name: redis-container
     ports:
       - "6379:6379"
+  
+  authorization-service:
+    image: thulomaepaa/bas-authorization-service:latest
+    container_name: authorization-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "32464:32464"
+    networks:
+      - main
+    depends_on:
+      - azure-sql-edge
+      - rabbitmq
+      - redis
+      # - gateway
