@@ -1,0 +1,130 @@
+# Compiled files
+bin/
+obj/
+*.exe
+*.dll
+*.pdb
+
+# User-specific files
+*.suo
+*.user
+*.userprefs
+*.vscode/
+.vs/
+.vscode/
+
+# Visual Studio files
+.vscode/
+*.sln
+*.suo
+*.user
+*.csproj
+*.userprefs
+*.vspscc
+*.vssscc
+*_i.c
+*_p.c
+*.ncb
+*.suo
+*.tlb
+*.tlh
+*.bak
+*.[Cc]ache
+*.ilk
+*.log
+*.tlog
+*.lib
+*.sbr
+*.scc
+*.DotSettings.user
+*.DotSettings
+
+# Rider
+.idea/
+
+# User-specific files
+*.suo
+*.user
+
+# Mono Auto Generated Files
+mono_crash.*
+
+# Windows image file caches
+Thumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Visual Studio Code - local history
+.history/
+
+# Compiled output
+/dist/
+/tmp/
+
+# Node modules
+/node_modules/
+npm-debug.log
+yarn-error.log
+
+# IDE specific files
+.idea/
+.vscode/
+*.suo
+*.user
+*.sln
+
+# Compiled TypeScript files
+*.js
+*.js.map
+
+# Dependency lock files
+package-lock.json
+yarn.lock
+
+# Environment variables
+.env
+.env.prod
+
+# Compiled CSS
+*.css
+*.css.map
+
+# Compiled SCSS
+*.scss
+*.scss.map
+
+# Compiled Sass
+*.sass
+*.sass.map
+
+# Angular CLI configuration file
+angular.json
+
+# Compiled output of ng build
+/ngsw-config.json
+
+# Angular CLI generated files
+*.ng
+
+# Angular service worker
+ngsw.json
+
+# Angular Universal generated files
+/dist-server/
+/server/
+
+# End-to-end test output
+/e2e/*.js
+/e2e/*.map
+/e2e/*.spec.ts
+
+# Browser test output
+/karma-coverage/
+
+# Cypress generated files
+/cypress/screenshots/
+/cypress/videos/
+
+# Translations
+/src/locale/
