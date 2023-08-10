@@ -190,8 +190,7 @@ User authentication is implemented using JSON Web Tokens (JWT). The obtained tok
 
 The application follows a microservices architecture to achieve modularity and scalability. Each microservice handles a specific set of functionalities.
 
-1. User Account Management Service
-2. Account Management Service
+1. Account Management Service
 3. Gateway
 
 ## Messaging Queue

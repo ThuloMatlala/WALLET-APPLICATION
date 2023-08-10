@@ -37,20 +37,6 @@ services:
     ports:
       - "6379:6379"
   
-  authorization-service:
-    image: thulomaepaa/bas-authorization-service:latest
-    container_name: authorization-service
-    environment:
-      - ASPNETCORE_ENVIRONMENT=Production
-    ports:
-      - "4200:80"
-    networks:
-      - main
-    depends_on:
-      - azure-sql-edge
-      - rabbitmq
-      - redis
-  
   gateway:
     image: thulomaepaa/bas-gateway:latest
     container_name: gateway
@@ -64,7 +50,6 @@ services:
       - azure-sql-edge
       - rabbitmq
       - redis
-      - authorization-service
   
   account-management-service:
     image: thulomaepaa/bas-account-management-service:latest

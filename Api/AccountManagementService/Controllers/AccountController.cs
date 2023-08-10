@@ -41,9 +41,10 @@ namespace AccountManagementService.Controllers
         [HttpGet("{accountId}/balance", Name = "GetAccountBalance")]
         public async Task<ActionResult<decimal>> GetAccountBalance([FromRoute] int accountId)
         {
-            var result = await _accountRepo.GetAccountsBalance(accountId);
-            if(result == 0)
+            var accountDetails = _accountRepo.GetAccountDetails(accountId);
+            if (accountDetails == null)
                 return BadRequest("Account not found");
+            var result = await _accountRepo.GetAccountsBalance(accountId);
             return Ok(result);
 
         }

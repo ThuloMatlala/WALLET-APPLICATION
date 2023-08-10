@@ -28,6 +28,7 @@ namespace AccountManagementService.Service
                 account.Balance += amount;
             else
                 account.Balance -= amount;
+            
             _accountRepo.UpdateAccount(accountId, account);
             var transaction = new Transaction { AccountId = accountId, Date = DateTime.Now, Amount = account.Balance };
             _transactionRepo.CreateTransaction(transaction);

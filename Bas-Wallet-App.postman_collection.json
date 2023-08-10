@@ -1,0 +1,470 @@
+{
+	"info": {
+		"_postman_id": "a67bd03e-c6e7-44a3-be95-b87a31a35462",
+		"name": "Bas-Wallet-App",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "7507415"
+	},
+	"item": [
+		{
+			"name": "Docker Env",
+			"item": [
+				{
+					"name": "Authorization",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4202/api/authorization/Register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4202",
+									"path": [
+										"api",
+										"authorization",
+										"Register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4202/api/authorization/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4202",
+									"path": [
+										"api",
+										"authorization",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Account Management",
+					"item": [
+						{
+							"name": "Get Transactions for account Id",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3NzA3MjB9.2MGkptwc3TdykQmu_c0KwPHcywB5RdFFun7QjAxBPRBohxEyTQDCW5OcLvlVxcEz9aZ0z59I4vcg8ifiFQKlCg",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "bearer",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4202/api/Account/1/transactions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4202",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"transactions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get balance for account id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:4202/api/Account/1/balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4202",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Credit Account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"amount\" : 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4202/api/Account/1/credit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4202",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"credit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Debit account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"amount\" : 10.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:4202/api/Account/1/debit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "4202",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"debit"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Publish Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event\": \"account.credited\",\n  \"message\" : {\n    \"accountId\" : 1,\n    \"transactionType\": \"credit\",\n    \"amount\" : 10.00\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:4201/api/Event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "4201",
+							"path": [
+								"api",
+								"Event"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Local Env",
+			"item": [
+				{
+					"name": "Authorization",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:13709/api/authorization/Register",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "13709",
+									"path": [
+										"api",
+										"authorization",
+										"Register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:13709/api/authorization/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "13709",
+									"path": [
+										"api",
+										"authorization",
+										"login"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Account Management",
+					"item": [
+						{
+							"name": "Get Transactions for account Id",
+							"request": {
+								"auth": {
+									"type": "apikey",
+									"apikey": [
+										{
+											"key": "in",
+											"value": "header",
+											"type": "string"
+										},
+										{
+											"key": "value",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3NzA3MjB9.2MGkptwc3TdykQmu_c0KwPHcywB5RdFFun7QjAxBPRBohxEyTQDCW5OcLvlVxcEz9aZ0z59I4vcg8ifiFQKlCg",
+											"type": "string"
+										},
+										{
+											"key": "key",
+											"value": "bearer",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:13709/api/Account/1/transactions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "13709",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"transactions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get balance for account id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:13709/api/Account/1/balance",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "13709",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"balance"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Credit Account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"amount\" : 10\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:13709/api/Account/1/credit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "13709",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"credit"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Debit account",
+							"request": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n        \"amount\" : 10.00\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:13709/api/Account/1/debit",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "13709",
+									"path": [
+										"api",
+										"Account",
+										"1",
+										"debit"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Publish Event",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"event\": \"account.credited\",\n  \"message\" : {\n    \"accountId\" : 1,\n    \"transactionType\": \"credit\",\n    \"amount\" : 10.00\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5205/api/Event",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5205",
+							"path": [
+								"api",
+								"Event"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
