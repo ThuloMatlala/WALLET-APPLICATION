@@ -198,6 +198,33 @@ The application follows a microservices architecture to achieve modularity and s
 
 A messaging queue, such as RabbitMQ, is used for communication between microservices. This ensures loose coupling and asynchronous processing.
 
+Endpoint: `POST /api/Event`
+
+Request body :
+
+```{
+{
+  "event": "account.credited",
+  "message" : {
+    "transactionType": "credit",
+    "amount" : 10.00
+  }
+}
+```
+
+Response body :
+
+```{
+{  
+"message" : "Message published"
+}
+```
+
+###### Events
+
+- account.credited
+- account.debited
+
 ## Persistence
 
 Azure-sql was leveraged for data storage with Entityramework as the object relational mapper.

@@ -14,9 +14,9 @@ namespace Gateway.Controllers
         }
 
         [HttpPost(Name = "PublishEvent")]
-        public EventDetail PublishEvent(EventDetail eventDetail)
+        public string PublishEvent(EventDetail eventDetail)
         {
-            return eventDetail;
+            return "Message Published";
 
         }
     }

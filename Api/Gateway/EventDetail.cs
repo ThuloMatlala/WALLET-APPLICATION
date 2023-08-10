@@ -2,7 +2,7 @@
 {
 	public class EventDetail
 	{
-		public string Topic { get; set; }
+		public string Event { get; set; }
 		public object Message { get; set; }
 	}
 }
