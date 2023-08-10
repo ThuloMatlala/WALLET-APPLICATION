@@ -11,4 +11,10 @@
     <PackageReference Include="RabbitMQ.Client" Version="6.5.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="AsyncDataServices\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="AsyncDataServices\" />
+  </ItemGroup>
 </Project>

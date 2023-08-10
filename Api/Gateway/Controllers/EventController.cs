@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Gateway.AsyncDataServices;
+using Microsoft.AspNetCore.Mvc;
 
 namespace Gateway.Controllers
 {
@@ -6,16 +7,17 @@ namespace Gateway.Controllers
     [Route("api/[controller]")]
     public class EventController : ControllerBase
     {
-        private readonly ILogger<EventController> _logger;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public EventController(ILogger<EventController> logger)
+        public EventController(IMessageBusClient messageBusClient)
         {
-            _logger = logger;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpPost(Name = "PublishEvent")]
         public string PublishEvent(EventDetail eventDetail)
         {
+            _messageBusClient.PublishMessage(eventDetail.Event, eventDetail.Message);
             return "Message Published";
 
         }
