@@ -1,6 +1,7 @@
 ﻿using AccountManagementService.Data;
 using AccountManagementService.Dtos;
 using AccountManagementService.Models;
+using AccountManagementService.Service;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -12,24 +13,27 @@ namespace AccountManagementService.Controllers
     //[Authorize]
     public class AccountController : ControllerBase
     {
+        private readonly IAccountService _accountService;
         private readonly IAccountRepo _accountRepo;
         private readonly ITransactionRepo _transactionRepo;
         private readonly IMapper _mapper;
 
-        public AccountController(IAccountRepo accountRepo, ITransactionRepo transactionRepo, IMapper mapper)
+        public AccountController(IAccountRepo accountRepo, ITransactionRepo transactionRepo, IAccountService accountService, IMapper mapper)
         {
+            _accountService = accountService;
             _accountRepo = accountRepo;
             _transactionRepo = transactionRepo;
+
             _mapper = mapper;
         }
 
         [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
         public async Task<ActionResult<IEnumerable<Transaction>>> TransactionsHistory([FromRoute] int accountId)
         {
-            var result = await _transactionRepo.GetAllTransactionsByAccountId(accountId);
-            if (result == null)
+            var transactions = await _transactionRepo.GetAllTransactionsByAccountId(accountId);
+            if (transactions == null)
                 return BadRequest("Account not found");
-            return Ok(result);
+            return Ok(transactions);
 
         }
 
@@ -44,17 +48,21 @@ namespace AccountManagementService.Controllers
         }
 
         [HttpPut("{accountId}/credit", Name = "CreditAccount")]
-        public string CreditAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
+        public ActionResult<Account> CreditAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
         {
-            return $"Credit {transactionCreateDto.Amount} from account {accountId}";
-
+            var account = _accountService.UpdateAccount(accountId, TransactionType.Credit, transactionCreateDto.Amount);
+            if (account == null)
+                return BadRequest("Account not found");
+            return Ok(account);
         }
 
         [HttpPut("{accountId}/debit", Name = "DebitAccount")]
-        public string DebitAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
+        public ActionResult<Account> DebitAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
         {
-            return $"Debit {transactionCreateDto.Amount} from account {accountId}";
-
+            var account = _accountService.UpdateAccount(accountId, TransactionType.Debit, transactionCreateDto.Amount);
+            if (account == null)
+                return BadRequest("Account not found");
+            return Ok(account);
         }
     }
 }
