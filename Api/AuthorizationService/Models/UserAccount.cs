@@ -1,7 +1,7 @@
 ﻿
 using System.ComponentModel.DataAnnotations;
 
-namespace AccountManagementService.Models
+namespace AuthorizationService.Models
 {
 	public class UserAccount
     {

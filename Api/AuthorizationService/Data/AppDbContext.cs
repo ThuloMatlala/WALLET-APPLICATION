@@ -1,5 +1,4 @@
-﻿using System.Transactions;
-using AccountManagementService.Models;
+﻿using AuthorizationService.Models;
 using Microsoft.EntityFrameworkCore;
 
 namespace AuthorizationService.Data

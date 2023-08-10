@@ -1,6 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
-
-// For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+﻿using AccountManagementService.Dtos;
+using Microsoft.AspNetCore.Mvc;
 
 namespace AccountManagementService.Controllers
 {
@@ -8,31 +7,31 @@ namespace AccountManagementService.Controllers
     [Route("api/[controller]")]
     public class AccountController : ControllerBase
     {
-        [HttpGet("{id}/transactions", Name = "GetTransactionsHistory")]
-        public int TransactionsHistory([FromRoute] int id)
+        [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
+        public string TransactionsHistory([FromRoute] int accountId)
         {
-            return id;
+            return $"Get transcactions for : {accountId}";
 
         }
 
-        [HttpGet("{id}/balance", Name = "GetAccountBalance")]
-        public int GetAccountBalance([FromRoute] int id)
+        [HttpGet("{accountId}/balance", Name = "GetAccountBalance")]
+        public string GetAccountBalance([FromRoute] int accountId)
         {
-            return id;
+            return $"Get balance for : {accountId}";
 
         }
 
-        [HttpPut("{id}/credit", Name = "CrebitAccount")]
-        public decimal CrebitAccount([FromRoute] int id, decimal amount)
+        [HttpPut("{accountId}/credit", Name = "CreditAccount")]
+        public string CreditAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
         {
-            return amount;
+            return $"Credit {transactionCreateDto.Amount} from account {accountId}";
 
         }
 
-        [HttpPut("{id}/debit", Name = "DebitAccount")]
-        public decimal DebitAccount([FromRoute] int id, decimal amount)
+        [HttpPut("{accountId}/debit", Name = "DebitAccount")]
+        public string DebitAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
         {
-            return amount;
+            return $"Debit {transactionCreateDto.Amount} from account {accountId}";
 
         }
     }

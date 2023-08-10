@@ -1,4 +1,4 @@
-﻿using AccountManagementService.Models;
+﻿using AuthorizationService.Models;
 using AutoMapper;
 using AuthorizationService.Dtos;
 

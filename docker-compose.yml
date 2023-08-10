@@ -25,7 +25,7 @@ services:
       MSSQL_SA_PASSWORD: Str#ng_Passw#rd
       ACCEPT_EULA: Y
     ports:
-      - "4200:1433"
+      - "1434:1433"
     networks:
       - main
     volumes:
@@ -37,13 +37,13 @@ services:
     ports:
       - "6379:6379"
   
-  gateway:
-    image: thulomaepaa/bas-gateway:latest
-    container_name: gateway
+  authorization-service:
+    image: thulomaepaa/bas-authorization-service:latest
+    container_name: authorization-service
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     ports:
-      - "5205:5205"
+      - "4200:80"
     networks:
       - main
     depends_on:
@@ -51,20 +51,20 @@ services:
       - rabbitmq
       - redis
   
-  authorization-service:
-    image: thulomaepaa/bas-authorization-service:latest
-    container_name: authorization-service
+  gateway:
+    image: thulomaepaa/bas-gateway:latest
+    container_name: gateway
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     ports:
-      - "32464:32464"
+      - "4201:80"
     networks:
       - main
     depends_on:
       - azure-sql-edge
       - rabbitmq
       - redis
-      # - gateway
+      - authorization-service
   
   account-management-service:
     image: thulomaepaa/bas-account-management-service:latest
@@ -72,11 +72,11 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Production
     ports:
-      - "49279:49279"
+      - "4202:80"
     networks:
       - main
     depends_on:
       - azure-sql-edge
       - rabbitmq
       - redis
-      # - gateway
+      - gateway

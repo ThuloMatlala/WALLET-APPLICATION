@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5vhNimnIRyHelP1SxS8t9uCg2Ls6rkJK/G0HOznrEyP6c/dJXpvBj1kId37jgQZkSZiIbL0UKCf9ee33TO84ow==",
+  "dgSpecHash": "iiiGfxoxDReQOadt5y7yyf4sGBZtDVtwLx8pNa/BAVTamYdaaCFhyatajrD6PtK4iRLWVQbl5qeXBhEMk/jduA==",
   "success": true,
   "projectFilePath": "/Users/thulo/projects/WALLET-APPLICATION/Api/AccountManagementService/AccountManagementService.csproj",
   "expectedPackageFiles": [
@@ -45,6 +45,7 @@
     "/Users/thulo/.nuget/packages/microsoft.win32.registry/5.0.0/microsoft.win32.registry.5.0.0.nupkg.sha512",
     "/Users/thulo/.nuget/packages/microsoft.win32.systemevents/5.0.0/microsoft.win32.systemevents.5.0.0.nupkg.sha512",
     "/Users/thulo/.nuget/packages/mono.texttemplating/2.2.1/mono.texttemplating.2.2.1.nupkg.sha512",
+    "/Users/thulo/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512",
     "/Users/thulo/.nuget/packages/rabbitmq.client/6.5.0/rabbitmq.client.6.5.0.nupkg.sha512",
     "/Users/thulo/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/Users/thulo/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",

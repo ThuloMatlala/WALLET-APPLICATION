@@ -1,6 +1,9 @@
 ﻿
 using Microsoft.AspNetCore.Mvc;
 using AuthorizationService.Dtos;
+using AutoMapper;
+using AuthorizationService.Models;
+using AuthorizationService.Services;
 
 namespace AuthorizationService.Controllers
 {
@@ -8,27 +11,22 @@ namespace AuthorizationService.Controllers
     [Route("api/accounts/[controller]")]
     public class RegisterController : ControllerBase
     {
+        private readonly IAuthService _authService;
+        private readonly IMapper _mapper;
 
-        private readonly ILogger<RegisterController> _logger;
-
-        public RegisterController(ILogger<RegisterController> logger)
+        public RegisterController(IAuthService authService, IMapper mapper)
         {
-            _logger = logger;
+            _authService = authService;
+            _mapper = mapper;
         }
 
-        //[HttpPost(Name = "UserAccountRegistration")]
-        //public IEnumerable<UserAccountReadDto> RegisterUserAccount(UserAccountCreateDto userAccountCreateDto)
-        //{
-        //    return new UserAccountReadDto();
-        //}
-
-
-
         [HttpPost(Name = "AccountRegistration")]
-        public string RegisterAccount(UserAccountCreateDto userAccountCreateDto)
+        public ActionResult<UserAccountReadDto> RegisterAccount([FromBody]UserAccountCreateDto userAccountCreateDto)
         {
-            return "Cheese";
-
+            var userAccountModel = _mapper.Map<UserAccount>(userAccountCreateDto);
+            _authService.CreateUserAccount(userAccountModel);
+            var userAccountReadDto = _mapper.Map<UserAccountReadDto>(userAccountModel);
+            return CreatedAtRoute("AccountRegistration", userAccountReadDto);
         }
     }
 }
