@@ -1,18 +1,33 @@
-﻿using AccountManagementService.Dtos;
-using Microsoft.AspNetCore.Authorization;
+﻿using AccountManagementService.Data;
+using AccountManagementService.Dtos;
+using AccountManagementService.Models;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountManagementService.Controllers
 {
+
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize]
+    //[Authorize]
     public class AccountController : ControllerBase
     {
-        [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
-        public string TransactionsHistory([FromRoute] int accountId)
+        private readonly IAccountRepo _accountRepo;
+        private readonly ITransactionRepo _transactionRepo;
+        private readonly IMapper _mapper;
+
+        public AccountController(IAccountRepo accountRepo, ITransactionRepo transactionRepo, IMapper mapper)
         {
-            return $"Get transcactions for : {accountId}";
+            _accountRepo = accountRepo;
+            _transactionRepo = transactionRepo;
+            _mapper = mapper;
+        }
+
+        [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
+        public async Task<IEnumerable<Transaction>> TransactionsHistory([FromRoute] int accountId)
+        {
+            var result = await _transactionRepo.GetAllTransactionsByAccountId(accountId);
+            return result;
 
         }
 

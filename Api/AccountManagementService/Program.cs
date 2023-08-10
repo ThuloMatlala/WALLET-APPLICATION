@@ -1,5 +1,6 @@
 ﻿using System.Text;
 using AccountManagementService.Data;
+using AccountManagementService.Service;
 using AuthorizationService.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -41,6 +42,10 @@ builder.Services.AddAuthentication(opt => {
         ValidateAudience = false
     };
 });
+
+builder.Services.AddScoped<IAccountRepo, AccountRepo>();
+builder.Services.AddScoped<IAccountService, AccountService>();
+builder.Services.AddScoped<ITransactionRepo, TransactionRepo>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
