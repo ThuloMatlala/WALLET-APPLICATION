@@ -23,8 +23,7 @@ namespace AccountManagementService.Data
 
         public async Task<IEnumerable<Transaction>> GetAllTransactionsByAccountId(int accountId)
         {
-            var transactions = _context.Transactions.Where(x => x.AccountId == accountId).ToList();
-            return transactions;
+            return _context.Transactions.Where(x => x.AccountId == accountId).ToList();
         }
 
         public Transaction GetTransactionById(int transactionId)

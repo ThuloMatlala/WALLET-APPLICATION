@@ -15,9 +15,10 @@ namespace AccountManagementService.Data
             return _context.Accounts.FirstOrDefault(x => x.Id == accountId);
         }
 
-        public decimal GetAccountsBalance(int accountId)
+        public async Task<decimal> GetAccountsBalance(int accountId)
         {
-            return GetAccountDetails(accountId).Balance;
+            var account = GetAccountDetails(accountId);
+            return account == null ? default : account.Balance;
         }
 
         public void UpdateAccount(int accountId, Account account)

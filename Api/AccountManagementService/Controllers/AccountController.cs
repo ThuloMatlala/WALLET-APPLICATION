@@ -24,17 +24,22 @@ namespace AccountManagementService.Controllers
         }
 
         [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
-        public async Task<IEnumerable<Transaction>> TransactionsHistory([FromRoute] int accountId)
+        public async Task<ActionResult<IEnumerable<Transaction>>> TransactionsHistory([FromRoute] int accountId)
         {
             var result = await _transactionRepo.GetAllTransactionsByAccountId(accountId);
-            return result;
+            if (result == null)
+                return BadRequest("Account not found");
+            return Ok(result);
 
         }
 
         [HttpGet("{accountId}/balance", Name = "GetAccountBalance")]
-        public string GetAccountBalance([FromRoute] int accountId)
+        public async Task<ActionResult<decimal>> GetAccountBalance([FromRoute] int accountId)
         {
-            return $"Get balance for : {accountId}";
+            var result = await _accountRepo.GetAccountsBalance(accountId);
+            if(result == 0)
+                return BadRequest("Account not found");
+            return Ok(result);
 
         }
 

@@ -6,7 +6,7 @@ namespace AccountManagementService.Data
     {
         bool SaveChanges();
         Account GetAccountDetails(int accountId);
-        decimal GetAccountsBalance(int accountId);
+        Task<decimal> GetAccountsBalance(int accountId);
         void UpdateAccount(int accountId,Account account);
     }
 }
