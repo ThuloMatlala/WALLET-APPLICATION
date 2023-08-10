@@ -6,7 +6,7 @@ namespace AccountManagementService.Models
     {
         [Key]
         [Required]
-        public int Id { get; set; }
+        public int AccountId { get; set; }
         [Required]
         public string Username { get; set; }
         [Required]

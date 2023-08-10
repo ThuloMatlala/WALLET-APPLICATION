@@ -1,5 +1,7 @@
 ﻿using AccountManagementService.Data;
+using AccountManagementService.Dtos;
 using AccountManagementService.Models;
+using AutoMapper;
 
 namespace AccountManagementService.Service
 {
@@ -7,15 +9,17 @@ namespace AccountManagementService.Service
     {
         private readonly IAccountRepo _accountRepo;
         private readonly ITransactionRepo _transactionRepo;
+        private readonly IMapper _mapper;
 
-        public AccountService(IAccountRepo accountRepo, ITransactionRepo transactionRepo)
+        public AccountService(IAccountRepo accountRepo, ITransactionRepo transactionRepo, IMapper mapper)
 		{
             _accountRepo = accountRepo;
             _transactionRepo = transactionRepo;
+            _mapper = mapper;
 
         }
 
-        public Account UpdateAccount(int accountId, TransactionType transactionType, decimal amount)
+        public AccountReadDto UpdateAccount(int accountId, TransactionType transactionType, decimal amount)
         {
             var account = _accountRepo.GetAccountDetails(accountId);
             if (account == null)
@@ -25,9 +29,12 @@ namespace AccountManagementService.Service
             else
                 account.Balance -= amount;
             _accountRepo.UpdateAccount(accountId, account);
-            var transaction = new Transaction { AccountId = accountId, Account = account, Date = DateTime.Now };
+            var transaction = new Transaction { AccountId = accountId, Date = DateTime.Now, Amount = account.Balance };
             _transactionRepo.CreateTransaction(transaction);
-            return  _accountRepo.GetAccountDetails(accountId);
+            _transactionRepo.SaveChanges();
+            var accountdetails = _accountRepo.GetAccountDetails(accountId);
+            var accountReadDto = _mapper.Map<AccountReadDto>(accountdetails);
+            return accountReadDto;
         }
     }
 }

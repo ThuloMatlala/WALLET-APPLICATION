@@ -3,6 +3,7 @@ using AccountManagementService.Dtos;
 using AccountManagementService.Models;
 using AccountManagementService.Service;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountManagementService.Controllers
@@ -28,7 +29,7 @@ namespace AccountManagementService.Controllers
         }
 
         [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
-        public async Task<ActionResult<IEnumerable<Transaction>>> TransactionsHistory([FromRoute] int accountId)
+        public async Task<ActionResult<IEnumerable<TransactionReadDto>>> TransactionsHistory([FromRoute] int accountId)
         {
             var transactions = await _transactionRepo.GetAllTransactionsByAccountId(accountId);
             if (transactions == null)
@@ -48,7 +49,7 @@ namespace AccountManagementService.Controllers
         }
 
         [HttpPut("{accountId}/credit", Name = "CreditAccount")]
-        public ActionResult<Account> CreditAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
+        public ActionResult<AccountReadDto> CreditAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
         {
             var account = _accountService.UpdateAccount(accountId, TransactionType.Credit, transactionCreateDto.Amount);
             if (account == null)
@@ -57,7 +58,7 @@ namespace AccountManagementService.Controllers
         }
 
         [HttpPut("{accountId}/debit", Name = "DebitAccount")]
-        public ActionResult<Account> DebitAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
+        public ActionResult<AccountReadDto> DebitAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
         {
             var account = _accountService.UpdateAccount(accountId, TransactionType.Debit, transactionCreateDto.Amount);
             if (account == null)

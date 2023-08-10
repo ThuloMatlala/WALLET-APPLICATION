@@ -1,4 +1,5 @@
-﻿using AccountManagementService.Models;
+﻿using AccountManagementService.Dtos;
+using AccountManagementService.Models;
 
 namespace AccountManagementService.Data
 {

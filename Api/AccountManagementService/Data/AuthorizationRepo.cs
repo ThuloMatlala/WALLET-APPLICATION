@@ -23,7 +23,7 @@ namespace AccountManagementService.Data
 
         public Account GetUserAccountById(int accountId)
         {
-            return _context.Accounts.FirstOrDefault(x => x.Id == accountId);
+            return _context.Accounts.FirstOrDefault(x => x.AccountId == accountId);
         }
 
         public Account GetUserAccountByUserName(string userName)

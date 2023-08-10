@@ -1,6 +1,4 @@
-﻿using AccountManagementService.Models;
-
-namespace AccountManagementService.Dtos
+﻿namespace AccountManagementService.Dtos
 {
 	public class TransactionReadDto
     {
@@ -8,7 +6,6 @@ namespace AccountManagementService.Dtos
         public int Amount { get; set; }
         public DateTime Date { get; set; }
         public int AccountId { get; set; }
-        public Account Account { get; set; }
     }
 }
 

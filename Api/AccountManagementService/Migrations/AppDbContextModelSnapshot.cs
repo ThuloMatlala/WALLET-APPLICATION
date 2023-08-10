@@ -24,11 +24,11 @@ namespace AccountManagementService.Migrations
 
             modelBuilder.Entity("AccountManagementService.Models.Account", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"));
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
@@ -41,7 +41,7 @@ namespace AccountManagementService.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.HasKey("AccountId");
 
                     b.ToTable("Accounts");
                 });
@@ -57,8 +57,8 @@ namespace AccountManagementService.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");

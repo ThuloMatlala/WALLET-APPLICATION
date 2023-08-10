@@ -1,10 +1,11 @@
-﻿using AccountManagementService.Models;
+﻿using AccountManagementService.Dtos;
+using AccountManagementService.Models;
 
 namespace AccountManagementService.Service
 {
 	public interface IAccountService
     {
-        Account UpdateAccount(int accountId, TransactionType transactionType, decimal amount);
+        AccountReadDto UpdateAccount(int accountId, TransactionType transactionType, decimal amount);
     }
 }
 

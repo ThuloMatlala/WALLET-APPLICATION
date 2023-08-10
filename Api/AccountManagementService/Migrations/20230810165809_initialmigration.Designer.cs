@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AccountManagementService.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230809144432_initialmigration")]
+    [Migration("20230810165809_initialmigration")]
     partial class initialmigration
     {
         /// <inheritdoc />
@@ -27,19 +27,24 @@ namespace AccountManagementService.Migrations
 
             modelBuilder.Entity("AccountManagementService.Models.Account", b =>
                 {
-                    b.Property<int>("Id")
+                    b.Property<int>("AccountId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("AccountId"));
 
                     b.Property<decimal>("Balance")
                         .HasColumnType("decimal(18,2)");
 
-                    b.Property<int>("UserAccountId")
-                        .HasColumnType("int");
+                    b.Property<string>("Password")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("Username")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("AccountId");
 
                     b.ToTable("Accounts");
                 });
@@ -55,8 +60,8 @@ namespace AccountManagementService.Migrations
                     b.Property<int>("AccountId")
                         .HasColumnType("int");
 
-                    b.Property<int>("Amount")
-                        .HasColumnType("int");
+                    b.Property<decimal>("Amount")
+                        .HasColumnType("decimal(18,2)");
 
                     b.Property<DateTime>("Date")
                         .HasColumnType("datetime2");
@@ -65,7 +70,7 @@ namespace AccountManagementService.Migrations
 
                     b.HasIndex("AccountId");
 
-                    b.ToTable("Transaction");
+                    b.ToTable("Transactions");
                 });
 
             modelBuilder.Entity("AccountManagementService.Models.Transaction", b =>
