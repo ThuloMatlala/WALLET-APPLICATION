@@ -18,16 +18,37 @@ namespace AuthorizationService.Services
 
         public string CreateUserAccount(UserAccount userAccount)
         {
-            if (string.IsNullOrEmpty(userAccount.Username))
-                return "Please enter a valid UserName";
+            var errorMessage = CredentialsAreValid(userAccount);
             if (UsernameExists(userAccount.Username))
                 return "Oops. The username you have chosen already exists";
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                userAccount.Password = HashPassword(userAccount.Password);
+                _authorizationRepo.CreateUserAccount(userAccount);
+                _authorizationRepo.SaveChanges();
+            }
+            return errorMessage;
+        }
+
+        private string CredentialsAreValid(UserAccount userAccount)
+        {
+            if (string.IsNullOrEmpty(userAccount.Username))
+                return "Please enter a valid UserName";
             if (string.IsNullOrEmpty(userAccount.Password))
                 return "Please enter a valid Password";
-            userAccount.Password = HashPassword(userAccount.Password);
-            _authorizationRepo.CreateUserAccount(userAccount);
-            _authorizationRepo.SaveChanges();
             return string.Empty;
+        }
+
+        public string? Login(UserAccount credentials)
+        {
+            var errorMessage = CredentialsAreValid(credentials);
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                var userAccount = _authorizationRepo.GetUserAccountByUserName(credentials.Username);
+                if (userAccount == null || userAccount.Password != HashPassword(credentials.Password))
+                    return "Oops. The credentials you provided do not match any user on our system.";
+            }
+            return errorMessage;
         }
 
         public UserAccount GetUserAccountById(int accountId)

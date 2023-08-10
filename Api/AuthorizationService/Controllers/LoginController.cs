@@ -1,4 +1,7 @@
 ﻿using AuthorizationService.Dtos;
+using AuthorizationService.Models;
+using AuthorizationService.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,26 +12,28 @@ namespace AuthorizationService.Controllers
     [Route("api/accounts/[controller]")]
     public class LoginController : ControllerBase
     {
-        private readonly ILogger<LoginController> _logger;
+        private readonly IAuthService _authService;
+        private readonly IMapper _mapper;
 
-        public LoginController(ILogger<LoginController> logger)
+        public LoginController(IAuthService authService, IMapper mapper)
         {
-            _logger = logger;
+            _authService = authService;
+            _mapper = mapper;
         }
 
-        //[HttpPost(Name = "UserAccountRegistration")]
-        //public IEnumerable<UserAccountReadDto> RegisterUserAccount(UserAccountCreateDto userAccountCreateDto)
-        //{
-        //    return new UserAccountReadDto();
-        //}
 
-
-
-        [HttpPost(Name = "AccountLogin")]
-        public string AccountLogin(UserAccountCreateDto userAccountCreateDto)
+        [HttpPost(Name = "Login")]
+        public ActionResult<UserAccountReadDto> Login([FromBody] UserAccountCreateDto userAccountCreateDto)
         {
-            return "Cheese";
-
+            var userAccountModel = _mapper.Map<UserAccount>(userAccountCreateDto);
+            var errorMessage = _authService.Login(userAccountModel);
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                var userAccountReadDto = _mapper.Map<UserAccountReadDto>(userAccountModel);
+                return Content("Login Successfull");
+            }
+            else
+                return BadRequest(errorMessage);
         }
     }
 }
