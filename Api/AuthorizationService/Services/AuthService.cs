@@ -62,7 +62,6 @@ namespace AuthorizationService.Services
             List<Claim> claims = new List<Claim>();
             {
                 new Claim(ClaimTypes.Name, userAccount.Username);
-                new Claim(ClaimTypes.Role, "User");
             }
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(

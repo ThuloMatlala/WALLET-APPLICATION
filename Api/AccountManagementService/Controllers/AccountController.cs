@@ -1,10 +1,12 @@
 ﻿using AccountManagementService.Dtos;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AccountManagementService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]

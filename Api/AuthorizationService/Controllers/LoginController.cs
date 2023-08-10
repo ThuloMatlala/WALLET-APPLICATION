@@ -30,7 +30,7 @@ namespace AuthorizationService.Controllers
             if (string.IsNullOrEmpty(errorMessage))
             {
                 var userAccountReadDto = _mapper.Map<UserAccountReadDto>(userAccountModel);
-                return Content($"Login Successfull : {_authService.CreateToken(userAccountReadDto)}");
+                return Content(_authService.CreateToken(userAccountReadDto));
             }
             else
                 return BadRequest(errorMessage);
