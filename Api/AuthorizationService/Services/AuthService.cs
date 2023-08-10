@@ -1,18 +1,23 @@
-﻿using System.Security.Cryptography;
+﻿using System.IdentityModel.Tokens.Jwt;
+using System.Security.Claims;
+using System.Security.Cryptography;
 using System.Text;
 using AuthorizationService.Data;
+using AuthorizationService.Dtos;
 using AuthorizationService.Models;
-using Microsoft.Identity.Client;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AuthorizationService.Services
 {
 	public class AuthService : IAuthService
 	{
         private readonly IAuthorizationRepo _authorizationRepo;
+        private readonly IConfiguration _configuration;
 
-        public AuthService(IAuthorizationRepo authorizationRepo)
+        public AuthService(IAuthorizationRepo authorizationRepo, IConfiguration configuration)
 		{
             _authorizationRepo = authorizationRepo;
+            _configuration = configuration;
 
         }
 
@@ -28,15 +33,6 @@ namespace AuthorizationService.Services
                 _authorizationRepo.SaveChanges();
             }
             return errorMessage;
-        }
-
-        private string CredentialsAreValid(UserAccount userAccount)
-        {
-            if (string.IsNullOrEmpty(userAccount.Username))
-                return "Please enter a valid UserName";
-            if (string.IsNullOrEmpty(userAccount.Password))
-                return "Please enter a valid Password";
-            return string.Empty;
         }
 
         public string? Login(UserAccount credentials)
@@ -61,6 +57,28 @@ namespace AuthorizationService.Services
             return _authorizationRepo.GetUserAccountByUserName(userName);
         }
 
+        public string CreateToken(UserAccountReadDto userAccount)
+        {
+            List<Claim> claims = new List<Claim>();
+            {
+                new Claim(ClaimTypes.Name, userAccount.Username);
+                new Claim(ClaimTypes.Role, "User");
+            }
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
+                _configuration.GetSection("Token").Value));
+
+            var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
+
+            var token = new JwtSecurityToken(
+                claims: claims,
+                expires: DateTime.Now.AddDays(1),
+                signingCredentials: cred
+            );
+
+            return new JwtSecurityTokenHandler().WriteToken(token);
+        }
+
         private bool UsernameExists(string username)
         {
             return _authorizationRepo.GetUserAccountByUserName(username) != null;
@@ -73,6 +91,16 @@ namespace AuthorizationService.Services
 
             return BitConverter.ToString(hashBytes).Replace("-", "").ToLower();
         }
+
+        private string CredentialsAreValid(UserAccount userAccount)
+        {
+            if (string.IsNullOrEmpty(userAccount.Username))
+                return "Please enter a valid UserName";
+            if (string.IsNullOrEmpty(userAccount.Password))
+                return "Please enter a valid Password";
+            return string.Empty;
+        }
+
     }
 }
 
