@@ -1,6 +1,7 @@
 ﻿using System.Text;
 using AccountManagementService.Data;
 using AccountManagementService.Service;
+using AccountManagementService.Services;
 using AuthorizationService.Data;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -43,6 +44,8 @@ builder.Services.AddAuthentication(opt => {
     };
 });
 
+builder.Services.AddScoped<IAuthorizationRepo, AuthorizationRepo>();
+builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ITransactionRepo, TransactionRepo>();

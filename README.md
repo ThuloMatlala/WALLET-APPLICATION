@@ -72,7 +72,7 @@ The wallet application follows a microservices architecture to enhance scalabili
 
 ### User Registration
 
-Endpoint: `POST /api/accounts/Register`
+Endpoint: `POST /api/authorization/Register`
 
 Request Body:
 
@@ -93,7 +93,7 @@ Response:
 
 ### User Login
 
-Endpoint: `POST /api/accounts/login`
+Endpoint: `POST /api/authorization/login`
 
 Request Body:
 
