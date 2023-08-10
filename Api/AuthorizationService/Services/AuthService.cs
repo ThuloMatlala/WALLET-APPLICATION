@@ -2,6 +2,7 @@
 using System.Text;
 using AuthorizationService.Data;
 using AuthorizationService.Models;
+using Microsoft.Identity.Client;
 
 namespace AuthorizationService.Services
 {
@@ -15,11 +16,33 @@ namespace AuthorizationService.Services
 
         }
 
-        public void CreateUserAccount(UserAccount userAccount)
+        public string CreateUserAccount(UserAccount userAccount)
         {
+            if (string.IsNullOrEmpty(userAccount.Username))
+                return "Please enter a valid UserName";
+            if (UsernameExists(userAccount.Username))
+                return "Oops. The username you have chosen already exists";
+            if (string.IsNullOrEmpty(userAccount.Password))
+                return "Please enter a valid Password";
             userAccount.Password = HashPassword(userAccount.Password);
             _authorizationRepo.CreateUserAccount(userAccount);
             _authorizationRepo.SaveChanges();
+            return string.Empty;
+        }
+
+        public UserAccount GetUserAccountById(int accountId)
+        {
+           return _authorizationRepo.GetUserAccountById(accountId);
+        }
+
+        public UserAccount GetUserAccountByUserName(string userName)
+        {
+            return _authorizationRepo.GetUserAccountByUserName(userName);
+        }
+
+        private bool UsernameExists(string username)
+        {
+            return _authorizationRepo.GetUserAccountByUserName(username) != null;
         }
 
         private string HashPassword(string password)

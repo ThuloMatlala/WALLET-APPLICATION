@@ -24,9 +24,14 @@ namespace AuthorizationService.Controllers
         public ActionResult<UserAccountReadDto> RegisterAccount([FromBody]UserAccountCreateDto userAccountCreateDto)
         {
             var userAccountModel = _mapper.Map<UserAccount>(userAccountCreateDto);
-            _authService.CreateUserAccount(userAccountModel);
-            var userAccountReadDto = _mapper.Map<UserAccountReadDto>(userAccountModel);
-            return CreatedAtRoute("AccountRegistration", userAccountReadDto);
+            var errorMessage = _authService.CreateUserAccount(userAccountModel);
+            if (string.IsNullOrEmpty(errorMessage))
+            {
+                var userAccountReadDto = _mapper.Map<UserAccountReadDto>(userAccountModel);
+                return CreatedAtRoute("AccountRegistration", userAccountReadDto);
+            }
+            else
+                return BadRequest(errorMessage);
         }
     }
 }

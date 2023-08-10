@@ -4,7 +4,9 @@ namespace AuthorizationService.Services
 {
     public interface IAuthService
     {
-        void CreateUserAccount(UserAccount userAccount);
+        string CreateUserAccount(UserAccount userAccount);
+        UserAccount GetUserAccountById(int accountId);
+        UserAccount GetUserAccountByUserName(string userName);
     }
 }
 
