@@ -11,8 +11,10 @@ namespace AccountManagementService.Profiles
             // Source -> Target
             // DB -> extrenal source
             CreateMap<Account, AccountReadDto>();
+            CreateMap<Transaction, TransactionReadDto>();
             // External source -> DB
             CreateMap<AccountCreateDto, Account>();
+            CreateMap<TransactionCreateDto, Transaction>();
         }
 	}
 }

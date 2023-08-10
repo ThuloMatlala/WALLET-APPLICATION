@@ -2,12 +2,11 @@
 
 namespace AccountManagementService.Dtos
 {
-	public class TransactionWriteDto
+	public class TransactionCreateDto
     {
         public int Amount { get; set; }
-        public DateTime Date { get; set; }
         public int AccountId { get; set; }
-        public Account Account { get; set; }
+        public string TransactionType { get; set; }
     }
 }
 
