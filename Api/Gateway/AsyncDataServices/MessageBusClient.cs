@@ -44,7 +44,6 @@ namespace Gateway.AsyncDataServices
             }
         }
 
-        //Cleans up when our class shuts dounw
         public void Dispose() {
             Console.WriteLine("Message Bus Disposed");
             if (_connection.IsOpen) {

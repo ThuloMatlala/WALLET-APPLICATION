@@ -1,7 +1,7 @@
-﻿namespace Gateway
+﻿namespace Gateway.Dtos
 {
-	public class EventDetail
-	{
+	public class EventDto
+    {
 		public string Event { get; set; }
 		public object Message { get; set; }
 	}

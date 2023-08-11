@@ -1,4 +1,5 @@
 ﻿using Gateway.AsyncDataServices;
+using Gateway.Dtos;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
@@ -17,9 +18,9 @@ namespace Gateway.Controllers
         }
 
         [HttpPost(Name = "PublishEvent")]
-        public string PublishEvent(EventDetail eventDetail)
+        public string PublishEvent(EventDto eventDetail)
         {
-            _messageBusClient.PublishMessage(eventDetail.Event, eventDetail.Message);
+            _messageBusClient.PublishMessage(eventDetail.Event, eventDetail);
             return "Message Published";
 
         }

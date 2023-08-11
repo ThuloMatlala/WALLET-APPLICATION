@@ -18,8 +18,10 @@
 
   <ItemGroup>
     <None Remove="AsyncDataServices\" />
+    <None Remove="Dtos\" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="AsyncDataServices\" />
+    <Folder Include="Dtos\" />
   </ItemGroup>
 </Project>
