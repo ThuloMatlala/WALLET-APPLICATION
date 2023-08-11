@@ -12,8 +12,7 @@
     "AccountManagementService": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "swagger",
-      "applicationUrl": "http://localhost:13709",
+      "applicationUrl": "http://localhost:18789",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },
