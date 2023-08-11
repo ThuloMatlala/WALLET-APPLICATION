@@ -257,12 +257,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:13709/api/authorization/Register",
+									"raw": "http://localhost:5263/api/authorization/Register",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "13709",
+									"port": "5263",
 									"path": [
 										"api",
 										"authorization",
@@ -287,12 +287,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:13709/api/authorization/login",
+									"raw": "http://localhost:5263/api/authorization/login",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "13709",
+									"port": "5263",
 									"path": [
 										"api",
 										"authorization",
@@ -311,21 +311,11 @@
 							"name": "Get Transactions for account Id",
 							"request": {
 								"auth": {
-									"type": "apikey",
-									"apikey": [
+									"type": "bearer",
+									"bearer": [
 										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3NzA3MjB9.2MGkptwc3TdykQmu_c0KwPHcywB5RdFFun7QjAxBPRBohxEyTQDCW5OcLvlVxcEz9aZ0z59I4vcg8ifiFQKlCg",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "bearer",
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlOTk3OWIyOS0wZjFkLTQ0YzUtYWQ4Ni00YjdlYzllMzM0NWIiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE3ODY2ODIsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.KAxjRhm0M-_misVB0y8ubEOrK1L4un4rwTwYzBdesB4xE0GwRv3JXpc-y1vkQaxpbU4IUA57qrTeXnuDaV01Zg",
 											"type": "string"
 										}
 									]
@@ -333,12 +323,12 @@
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:13709/api/Account/1/transactions",
+									"raw": "http://localhost:18789/api/Account/1/transactions",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "13709",
+									"port": "18789",
 									"path": [
 										"api",
 										"Account",
@@ -450,12 +440,12 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:5205/api/Event",
+							"raw": "http://localhost:41437/api/Event",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
-							"port": "5205",
+							"port": "41437",
 							"path": [
 								"api",
 								"Event"
