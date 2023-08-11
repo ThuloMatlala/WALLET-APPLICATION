@@ -1,10 +1,12 @@
 ﻿using Gateway.AsyncDataServices;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Gateway.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize]
     public class EventController : ControllerBase
     {
         private readonly IMessageBusClient _messageBusClient;
