@@ -1,3 +1,4 @@
+import { BackEndInterceptor } from './_helpers/back-end';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -18,7 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [BackEndInterceptor],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
