@@ -11,7 +11,7 @@ export class BackEndInterceptor implements HttpInterceptor {
     function handleRoute(): Observable<HttpEvent<any>> {
       switch (true) {
                 case url.endsWith('authorization/Register') && method === 'POST':
-                    return authenticate();
+                    return register();
                 case url.endsWith('authorization/login') && method === 'POST':
                      return login();
                 case url.endsWith('Account/{id}/transactions') && method === 'GET':
@@ -27,7 +27,7 @@ export class BackEndInterceptor implements HttpInterceptor {
                     return next.handle(req);
       }
       //TODO possibly move these
-      function authenticate(): Observable<HttpEvent<any>> {
+      function register(): Observable<HttpEvent<any>> {
         throw new Error('Function not implemented.');
       }
       function login(): Observable<HttpEvent<any>> {
