@@ -41,7 +41,7 @@ namespace IdentityService.Controllers
             if (string.IsNullOrEmpty(errorMessage))
             {
                 var userAccountReadDto = _mapper.Map<AccountReadDto>(userAccountModel);
-                return Content(_authService.CreateToken(userAccountReadDto));
+                return Content(_authService.CreateToken(userAccountModel));
             }
             else
                 return BadRequest(errorMessage);

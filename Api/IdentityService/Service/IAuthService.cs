@@ -5,7 +5,7 @@ namespace IdentityService.Services
 {
     public interface IAuthService
     {
-        string CreateToken(AccountReadDto userAccountReadDto);
+        string CreateToken(Account userAccountReadDto);
         string CreateUserAccount(Account userAccount);
         Account GetUserAccountById(int accountId);
         Account GetUserAccountByUserName(string userName);
