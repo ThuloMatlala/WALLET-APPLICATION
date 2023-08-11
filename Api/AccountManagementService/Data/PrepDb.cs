@@ -1,7 +1,7 @@
 ﻿using AccountManagementService.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace AuthorizationService.Data
+namespace AccountManagementService.Data
 {
 	public static class PrepDb
     {
