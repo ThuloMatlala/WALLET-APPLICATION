@@ -12,7 +12,7 @@ namespace AccountManagementService.Data
 
         public Account GetAccountDetails(int accountId)
         {
-            return _context.Accounts.FirstOrDefault(x => x.AccountId == accountId);
+            return _context.Accounts.FirstOrDefault(x => x.Id == accountId);
         }
 
         public async Task<decimal> GetAccountsBalance(int accountId)

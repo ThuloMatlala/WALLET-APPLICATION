@@ -2,12 +2,11 @@
 using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
-using Gateway.Data;
-using Gateway.Dtos;
-using Gateway.Models;
+using IdentityService.Data;
+using IdentityService.Models;
 using Microsoft.IdentityModel.Tokens;
 
-namespace Gateway.Services
+namespace IdentityService.Services
 {
 	public class AuthService : IAuthService
 	{
@@ -57,22 +56,28 @@ namespace Gateway.Services
             return _authorizationRepo.GetUserAccountByUserName(userName);
         }
 
-        public string CreateToken(AccountReadDto userAccount)
+        public string CreateToken(Account userAccount)
         {
-            List<Claim> claims = new List<Claim>();
+            var tokenHandle = new JwtSecurityTokenHandler();
+
+            List<Claim> claims = new List<Claim>
             {
-                new Claim(ClaimTypes.Name, userAccount.Username);
-            }
+                new(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                new(JwtRegisteredClaimNames.UniqueName, userAccount.Username),
+                new("accountId", userAccount.AccountId.ToString())
+            };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(
-                _configuration.GetSection("Token").Value));
+                _configuration["JwtSettings:Key"]));
 
             var cred = new SigningCredentials(key, SecurityAlgorithms.HmacSha512Signature);
 
             var token = new JwtSecurityToken(
                 claims: claims,
-                expires: DateTime.Now.AddDays(1),
-                signingCredentials: cred
+                expires: DateTime.Now.AddHours(8),
+                signingCredentials: cred,
+                issuer: _configuration["JwtSettings:Issuer"],
+                audience: _configuration["JwtSettings:Audience"]
             );
 
             return new JwtSecurityTokenHandler().WriteToken(token);

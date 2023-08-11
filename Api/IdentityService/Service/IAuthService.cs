@@ -1,11 +1,11 @@
-﻿using Gateway.Dtos;
-using Gateway.Models;
+﻿using IdentityService.Dtos;
+using IdentityService.Models;
 
-namespace Gateway.Services
+namespace IdentityService.Services
 {
     public interface IAuthService
     {
-        string CreateToken(AccountReadDto userAccountReadDto);
+        string CreateToken(Account userAccountReadDto);
         string CreateUserAccount(Account userAccount);
         Account GetUserAccountById(int accountId);
         Account GetUserAccountByUserName(string userName);

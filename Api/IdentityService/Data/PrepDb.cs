@@ -1,7 +1,7 @@
-﻿using Gateway.Data;
+﻿using IdentityService.Data;
 using Microsoft.EntityFrameworkCore;
 
-namespace AuthorizationService.Data
+namespace IdentityService.Data
 {
 	public static class PrepDb
     {

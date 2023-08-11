@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace Gateway.Models
+namespace IdentityService.Models
 {
 	public class Account
     {

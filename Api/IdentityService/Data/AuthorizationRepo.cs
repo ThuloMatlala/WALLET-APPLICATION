@@ -1,6 +1,6 @@
-﻿using Gateway.Models;
+﻿using IdentityService.Models;
 
-namespace Gateway.Data
+namespace IdentityService.Data
 {
     public class AuthorizationRepo : IAuthorizationRepo
     {

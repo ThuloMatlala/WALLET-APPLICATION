@@ -2,7 +2,7 @@
 
 #nullable disable
 
-namespace Gateway.Migrations
+namespace IdentityService.Migrations
 {
     /// <inheritdoc />
     public partial class initialmigration : Migration

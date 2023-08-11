@@ -1,10 +1,10 @@
-﻿using AccountManagementService.Dtos;
-using AccountManagementService.Models;
-using AccountManagementService.Services;
+﻿using IdentityService.Dtos;
+using IdentityService.Models;
+using IdentityService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
-namespace AccountManagementService.Controllers
+namespace IdentityService.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -41,7 +41,7 @@ namespace AccountManagementService.Controllers
             if (string.IsNullOrEmpty(errorMessage))
             {
                 var userAccountReadDto = _mapper.Map<AccountReadDto>(userAccountModel);
-                return Content(_authService.CreateToken(userAccountReadDto));
+                return Content(_authService.CreateToken(userAccountModel));
             }
             else
                 return BadRequest(errorMessage);

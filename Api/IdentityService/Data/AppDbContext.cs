@@ -1,7 +1,7 @@
-﻿using Gateway.Models;
+﻿using IdentityService.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace Gateway.Data
+namespace IdentityService.Data
 {
 	public class AppDbContext : DbContext
     {

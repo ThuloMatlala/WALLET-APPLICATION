@@ -1,8 +1,8 @@
-﻿using Gateway.Dtos;
-using Gateway.Models;
+﻿using IdentityService.Dtos;
+using IdentityService.Models;
 using AutoMapper;
 
-namespace Gateway.Profiles
+namespace IdentityService.Profiles
 {
 	public class AccountProfiles : Profile
     {

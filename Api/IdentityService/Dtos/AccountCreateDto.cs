@@ -1,5 +1,5 @@
 ﻿
-namespace Gateway.Dtos
+namespace IdentityService.Dtos
 {
 	public class AccountCreateDto
     {
