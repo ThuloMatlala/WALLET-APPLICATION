@@ -3,6 +3,7 @@ using IdentityService.Models;
 using IdentityService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using IdentityService.AsyncDataServices;
 
 namespace IdentityService.Controllers
 {
@@ -12,11 +13,13 @@ namespace IdentityService.Controllers
     {
         private readonly IAuthService _authService;
         private readonly IMapper _mapper;
+        private readonly IMessageBusClient _messageBusClient;
 
-        public AuthorizationController(IAuthService authService, IMapper mapper)
+        public AuthorizationController(IAuthService authService, IMapper mapper, IMessageBusClient messageBusClient)
         {
             _authService = authService;
             _mapper = mapper;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpPost("register", Name = "AccountRegistration")]
@@ -27,6 +30,7 @@ namespace IdentityService.Controllers
             if (string.IsNullOrEmpty(errorMessage))
             {
                 var userAccountReadDto = _mapper.Map<AccountReadDto>(userAccountModel);
+                _messageBusClient.PublishMessage("account.created", userAccountReadDto.Id);
                 return CreatedAtRoute("AccountRegistration", userAccountReadDto);
             }
             else
