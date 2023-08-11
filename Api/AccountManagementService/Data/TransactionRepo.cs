@@ -18,8 +18,7 @@ namespace AccountManagementService.Data
                 throw new ArgumentNullException(nameof(transaction));
             }
 
-            _context.Transactions.Add(transaction);
-        }
+            _context.Transactions.Add(transaction);        }
 
         public async Task<IEnumerable<Transaction>> GetAllTransactionsByAccountId(int accountId)
         {

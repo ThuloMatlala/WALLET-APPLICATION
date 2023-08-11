@@ -23,14 +23,35 @@ namespace AccountManagementService.EventProcessing
             var eventType = DetermineEvent(eventDetail);
             switch (eventType)
             {
+                case EventType.AccountCreated:
+                    CreateAccount(eventDetail);
+                    break;
                 case EventType.AccountCredited:
-                    updateAccount(eventDetail, TransactionType.Credit);
+                    UpdateAccount(eventDetail, TransactionType.Credit);
                     break;
                 case EventType.AccountDebited:
-                    updateAccount(eventDetail, TransactionType.Debit);
+                    UpdateAccount(eventDetail, TransactionType.Debit);
                     break;
                 default:
                     break;
+            }
+        }
+
+        private void CreateAccount(string eventDetail)
+        {
+            using (var scope = _scopeFactory.CreateScope())
+            {
+                var accountService = scope.ServiceProvider.GetRequiredService<IAccountService>();
+                var eventDto = JsonSerializer.Deserialize<EventDto>(eventDetail);
+                var accountId = JsonSerializer.Deserialize<EventDto>(eventDetail);
+                try
+                {
+                    var account = Convert.ToString(eventDto.Message);
+                    var accountCreateDto = new AccountCreateDto { UserAccountId = Int32.Parse(account) };
+                    accountService.CreateAccount(accountCreateDto);
+                }
+                catch (Exception ex) { Console.WriteLine($"Could not debit/credit account - {ex}"); }
+
             }
         }
 
@@ -39,25 +60,26 @@ namespace AccountManagementService.EventProcessing
 
             var eventDto = JsonSerializer.Deserialize<EventDto>(eventDetail);
 
-            switch (eventDto.Event) {
+            switch (eventDto.Event)
+            {
+                case "account.created":
+                    Console.WriteLine("--> Account Creation detected");
+                    return EventType.AccountCreated;
                 case "account.credited":
                     Console.WriteLine("--> Account Credit detected");
                     return EventType.AccountCredited;
-                    break;
-                case "account.dedited":
+                case "account.debited":
                     Console.WriteLine("--> Account Dedit detected");
                     return EventType.AccountCredited;
-                    break;
                 default:
                     Console.WriteLine("Could not determine event type");
                     return EventType.Undetermined;
-                    break;
             }
             
 
         }
 
-        private void updateAccount(string eventDetail, TransactionType transactionType)
+        private void UpdateAccount(string eventDetail, TransactionType transactionType)
         {
             using (var scope = _scopeFactory.CreateScope())
             {
@@ -78,7 +100,8 @@ namespace AccountManagementService.EventProcessing
     {
         AccountDebited,
         AccountCredited,
-        Undetermined
+        Undetermined,
+        AccountCreated
     }
 }
 
