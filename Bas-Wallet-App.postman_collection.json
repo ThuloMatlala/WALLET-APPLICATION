@@ -428,6 +428,16 @@
 				{
 					"name": "Publish Event",
 					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlOTk3OWIyOS0wZjFkLTQ0YzUtYWQ4Ni00YjdlYzllMzM0NWIiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE3ODY2ODIsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.KAxjRhm0M-_misVB0y8ubEOrK1L4un4rwTwYzBdesB4xE0GwRv3JXpc-y1vkQaxpbU4IUA57qrTeXnuDaV01Zg",
+									"type": "string"
+								}
+							]
+						},
 						"method": "POST",
 						"header": [],
 						"body": {
