@@ -6,11 +6,9 @@ namespace AccountManagementService.Models
     {
         [Key]
         [Required]
-        public int AccountId { get; set; }
+        public int Id { get; set; }
         [Required]
-        public string Username { get; set; }
-        [Required]
-        public string Password { get; set; }
+        public int UserAccountId { get; set; }
         [Required]
         public decimal Balance { get; set; }
         public List<Transaction> Transactions { get; set; }

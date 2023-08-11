@@ -1,7 +1,6 @@
 ﻿using System.Text;
 using AccountManagementService.Data;
 using AccountManagementService.Service;
-using AccountManagementService.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
@@ -49,8 +48,6 @@ Console.WriteLine($"--> Environment: {builder.Environment.EnvironmentName}");
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AccountConn")));
 
-builder.Services.AddScoped<IAuthorizationRepo, AuthorizationRepo>();
-builder.Services.AddScoped<IAuthService, AuthService>();
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ITransactionRepo, TransactionRepo>();
