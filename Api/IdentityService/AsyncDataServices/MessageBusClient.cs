@@ -2,7 +2,7 @@
 using System.Text.Json;
 using RabbitMQ.Client;
 
-namespace AccountManagementService.AsyncDataServices
+namespace IdentityService.AsyncDataServices
 {
 	public class MessageBusClient : IMessageBusClient
 	{
@@ -44,7 +44,6 @@ namespace AccountManagementService.AsyncDataServices
             }
         }
 
-        //Cleans up when our class shuts dounw
         public void Dispose() {
             Console.WriteLine("Message Bus Disposed");
             if (_connection.IsOpen) {

@@ -1,5 +1,7 @@
 ﻿using System.Text;
+using AccountManagementService.AsyncDataServices;
 using AccountManagementService.Data;
+using AccountManagementService.EventProcessing;
 using AccountManagementService.Service;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
@@ -38,6 +40,9 @@ builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(buil
 builder.Services.AddScoped<IAccountRepo, AccountRepo>();
 builder.Services.AddScoped<IAccountService, AccountService>();
 builder.Services.AddScoped<ITransactionRepo, TransactionRepo>();
+
+builder.Services.AddSingleton<IEventProcessor, EventProcessor>();
+builder.Services.AddHostedService<MessageBusSubscriber>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

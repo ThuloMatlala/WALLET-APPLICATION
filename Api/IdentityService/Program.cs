@@ -1,4 +1,5 @@
-﻿using IdentityService.Data;
+﻿using IdentityService.AsyncDataServices;
+using IdentityService.Data;
 using IdentityService.Services;
 using Microsoft.EntityFrameworkCore;
 
@@ -14,6 +15,7 @@ builder.Services.AddSwaggerGen();
 Console.WriteLine($"--> Environment: {builder.Environment.EnvironmentName}");
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("AccountConn")));
+builder.Services.AddSingleton<IMessageBusClient, MessageBusClient>();
 
 builder.Services.AddScoped<IAuthorizationRepo, AuthorizationRepo>();
 builder.Services.AddScoped<IAuthService, AuthService>();

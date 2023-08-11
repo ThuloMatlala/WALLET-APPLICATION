@@ -1,4 +1,4 @@
-﻿namespace Gateway.AsyncDataServices
+﻿namespace IdentityService.AsyncDataServices
 {
 	public interface IMessageBusClient
     {

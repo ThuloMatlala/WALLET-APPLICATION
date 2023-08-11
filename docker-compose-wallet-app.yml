@@ -1,0 +1,27 @@
+networks:
+      main:
+        driver: bridge
+
+services:
+  
+  identity-service:
+    image: thulomaepaa/bas-identity-service:latest
+    container_name: identity-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "4201:80"
+    networks:
+      - main
+  
+  account-management-service:
+    image: thulomaepaa/bas-account-management-service:latest
+    container_name: account-management-service
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    ports:
+      - "4202:80"
+    networks:
+      - main
+    depends_on:
+      - identity-service

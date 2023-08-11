@@ -28,40 +28,40 @@ namespace AccountManagementService.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet("{accountId}/transactions", Name = "GetTransactionsHistory")]
-        public async Task<ActionResult<IEnumerable<TransactionReadDto>>> TransactionsHistory([FromRoute] int accountId)
+        [HttpGet("{userAccountId}/transactions", Name = "GetTransactionsHistory")]
+        public async Task<ActionResult<IEnumerable<TransactionReadDto>>> TransactionsHistory([FromRoute] int userAccountId)
         {
-            var transactions = await _transactionRepo.GetAllTransactionsByAccountId(accountId);
+            var transactions = await _transactionRepo.GetAllTransactionsByAccountId(userAccountId);
             if (transactions == null)
                 return BadRequest("Account not found");
             return Ok(transactions);
 
         }
 
-        [HttpGet("{accountId}/balance", Name = "GetAccountBalance")]
-        public async Task<ActionResult<decimal>> GetAccountBalance([FromRoute] int accountId)
+        [HttpGet("{userAccountId}/balance", Name = "GetAccountBalance")]
+        public async Task<ActionResult<decimal>> GetAccountBalance([FromRoute] int userAccountId)
         {
-            var accountDetails = _accountRepo.GetAccountDetails(accountId);
+            var accountDetails = _accountRepo.GetAccountDetailsByUserAccount(userAccountId);
             if (accountDetails == null)
                 return BadRequest("Account not found");
-            var result = await _accountRepo.GetAccountsBalance(accountId);
+            var result = await _accountRepo.GetAccountsBalance(userAccountId);
             return Ok(result);
 
         }
 
-        [HttpPut("{accountId}/credit", Name = "CreditAccount")]
-        public ActionResult<AccountReadDto> CreditAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
+        [HttpPut("{userAccountId}/credit", Name = "CreditAccount")]
+        public ActionResult<AccountReadDto> CreditAccount([FromRoute] int userAccountId, TransactionCreateDto transactionCreateDto)
         {
-            var account = _accountService.UpdateAccount(accountId, TransactionType.Credit, transactionCreateDto.Amount);
+            var account = _accountService.UpdateAccount(userAccountId, TransactionType.Credit, transactionCreateDto.Amount);
             if (account == null)
                 return BadRequest("Account not found");
             return Ok(account);
         }
 
-        [HttpPut("{accountId}/debit", Name = "DebitAccount")]
-        public ActionResult<AccountReadDto> DebitAccount([FromRoute] int accountId, TransactionCreateDto transactionCreateDto)
+        [HttpPut("{userAccountId}/debit", Name = "DebitAccount")]
+        public ActionResult<AccountReadDto> DebitAccount([FromRoute] int userAccountId, TransactionCreateDto transactionCreateDto)
         {
-            var account = _accountService.UpdateAccount(accountId, TransactionType.Debit, transactionCreateDto.Amount);
+            var account = _accountService.UpdateAccount(userAccountId, TransactionType.Debit, transactionCreateDto.Amount);
             if (account == null)
                 return BadRequest("Account not found");
             return Ok(account);

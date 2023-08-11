@@ -11,6 +11,7 @@ namespace AccountManagementService.Profiles
             // Source -> Target
             CreateMap<Transaction, TransactionReadDto>();
             CreateMap<TransactionCreateDto, Transaction>();
+            CreateMap<object, Transaction>();
         }
 	}
 }

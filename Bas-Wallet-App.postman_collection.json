@@ -27,12 +27,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4202/api/authorization/Register",
+									"raw": "http://localhost:4201/api/authorization/Register",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "4202",
+									"port": "4201",
 									"path": [
 										"api",
 										"authorization",
@@ -57,12 +57,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4202/api/authorization/login",
+									"raw": "http://localhost:4201/api/authorization/login",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "4202",
+									"port": "4201",
 									"path": [
 										"api",
 										"authorization",
@@ -81,21 +81,11 @@
 							"name": "Get Transactions for account Id",
 							"request": {
 								"auth": {
-									"type": "apikey",
-									"apikey": [
+									"type": "bearer",
+									"bearer": [
 										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3NzA3MjB9.2MGkptwc3TdykQmu_c0KwPHcywB5RdFFun7QjAxBPRBohxEyTQDCW5OcLvlVxcEz9aZ0z59I4vcg8ifiFQKlCg",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "bearer",
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
 											"type": "string"
 										}
 									]
@@ -122,6 +112,16 @@
 						{
 							"name": "Get balance for account id",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -144,6 +144,16 @@
 						{
 							"name": "Credit Account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -175,6 +185,16 @@
 						{
 							"name": "Debit account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -249,7 +269,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"raw": "{\n  \"username\": \"john_doe\",\n  \"password\": \"P@ssw0rd\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -279,7 +299,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"raw": "{\n  \"username\": \"john_doe\",\n  \"password\": \"P@ssw0rd\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -315,7 +335,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlOTk3OWIyOS0wZjFkLTQ0YzUtYWQ4Ni00YjdlYzllMzM0NWIiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE3ODY2ODIsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.KAxjRhm0M-_misVB0y8ubEOrK1L4un4rwTwYzBdesB4xE0GwRv3JXpc-y1vkQaxpbU4IUA57qrTeXnuDaV01Zg",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjA1YzEwNC1mOGMwLTRlMDMtOGNjMS0yY2ExMDAyZjg4NmQiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lIiwiYWNjb3VudElkIjoiMCIsImV4cCI6MTY5MTgwNTg4MSwiaXNzIjoiSldUQXV0aGVudGljYXRpb25TZXJ2ZXIiLCJhdWQiOiJKV1RTZXJ2aWNlUG9zdG1hbkNsaWVudCJ9.HVzehSd-qlSHhgFXolE7UYG2xX4MAS8VP53E1VPffMA21hFtOFO8Apn19khIRrx02oyIG9_HzYCwg9WkPNzVAQ",
 											"type": "string"
 										}
 									]
@@ -342,15 +362,25 @@
 						{
 							"name": "Get balance for account id",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjA1YzEwNC1mOGMwLTRlMDMtOGNjMS0yY2ExMDAyZjg4NmQiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lIiwiYWNjb3VudElkIjoiMCIsImV4cCI6MTY5MTgwNTg4MSwiaXNzIjoiSldUQXV0aGVudGljYXRpb25TZXJ2ZXIiLCJhdWQiOiJKV1RTZXJ2aWNlUG9zdG1hbkNsaWVudCJ9.HVzehSd-qlSHhgFXolE7UYG2xX4MAS8VP53E1VPffMA21hFtOFO8Apn19khIRrx02oyIG9_HzYCwg9WkPNzVAQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
-									"raw": "http://localhost:13709/api/Account/1/balance",
+									"raw": "http://localhost:18789/api/Account/1/balance",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "13709",
+									"port": "18789",
 									"path": [
 										"api",
 										"Account",
@@ -364,11 +394,21 @@
 						{
 							"name": "Credit Account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIxZTc5OGMxYS1jOTZhLTQwYTAtYWEyZC05OTA4NmU4MDczNDMiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDQ1MjMsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.00Q9eOIQSktMu5TBlNtNha9nfrmmi8T5Qt2e49Js2A7_Mk9jMjkPZMZNEmJbJApnuuw8WLllkOsKWdjy9MPZBA",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n        \"amount\" : 10\n}",
+									"raw": "{\n        \"amount\" : 10.00\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -376,12 +416,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:13709/api/Account/1/credit",
+									"raw": "http://localhost:18789/api/Account/1/credit",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "13709",
+									"port": "18789",
 									"path": [
 										"api",
 										"Account",
@@ -395,6 +435,16 @@
 						{
 							"name": "Debit account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyYjA1YzEwNC1mOGMwLTRlMDMtOGNjMS0yY2ExMDAyZjg4NmQiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lIiwiYWNjb3VudElkIjoiMCIsImV4cCI6MTY5MTgwNTg4MSwiaXNzIjoiSldUQXV0aGVudGljYXRpb25TZXJ2ZXIiLCJhdWQiOiJKV1RTZXJ2aWNlUG9zdG1hbkNsaWVudCJ9.HVzehSd-qlSHhgFXolE7UYG2xX4MAS8VP53E1VPffMA21hFtOFO8Apn19khIRrx02oyIG9_HzYCwg9WkPNzVAQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -407,12 +457,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:13709/api/Account/1/debit",
+									"raw": "http://localhost:18789/api/Account/1/debit",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "13709",
+									"port": "18789",
 									"path": [
 										"api",
 										"Account",
@@ -424,45 +474,6 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "Publish Event",
-					"request": {
-						"auth": {
-							"type": "bearer",
-							"bearer": [
-								{
-									"key": "token",
-									"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJlOTk3OWIyOS0wZjFkLTQ0YzUtYWQ4Ni00YjdlYzllMzM0NWIiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE3ODY2ODIsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.KAxjRhm0M-_misVB0y8ubEOrK1L4un4rwTwYzBdesB4xE0GwRv3JXpc-y1vkQaxpbU4IUA57qrTeXnuDaV01Zg",
-									"type": "string"
-								}
-							]
-						},
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"event\": \"account.credited\",\n  \"message\" : {\n    \"accountId\" : 1,\n    \"transactionType\": \"credit\",\n    \"amount\" : 10.00\n  }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:41437/api/Event",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "41437",
-							"path": [
-								"api",
-								"Event"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		}

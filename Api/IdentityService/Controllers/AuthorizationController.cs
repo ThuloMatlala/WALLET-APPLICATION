@@ -3,6 +3,7 @@ using IdentityService.Models;
 using IdentityService.Services;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using IdentityService.AsyncDataServices;
 
 namespace IdentityService.Controllers
 {
@@ -12,11 +13,15 @@ namespace IdentityService.Controllers
     {
         private readonly IAuthService _authService;
         private readonly IMapper _mapper;
+        private readonly IMessageBusClient _messageBusClient;
+        //todo : Find a better place to put this
+        private static string _accountCreatedEvent = "account.created";
 
-        public AuthorizationController(IAuthService authService, IMapper mapper)
+        public AuthorizationController(IAuthService authService, IMapper mapper, IMessageBusClient messageBusClient)
         {
             _authService = authService;
             _mapper = mapper;
+            _messageBusClient = messageBusClient;
         }
 
         [HttpPost("register", Name = "AccountRegistration")]
@@ -26,7 +31,9 @@ namespace IdentityService.Controllers
             var errorMessage = _authService.CreateUserAccount(userAccountModel);
             if (string.IsNullOrEmpty(errorMessage))
             {
-                var userAccountReadDto = _mapper.Map<AccountReadDto>(userAccountModel);
+                var newUserAccount = _authService.GetUserAccountByUserName(userAccountModel.Username);
+                var userAccountReadDto = _mapper.Map<AccountReadDto>(newUserAccount);
+                _messageBusClient.PublishMessage(_accountCreatedEvent, new EventDto { Event = _accountCreatedEvent, Message = userAccountReadDto.AccountId });
                 return CreatedAtRoute("AccountRegistration", userAccountReadDto);
             }
             else

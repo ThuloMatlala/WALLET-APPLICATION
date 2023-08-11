@@ -47,7 +47,7 @@ The wallet application follows a microservices architecture to enhance scalabili
 - [Node.js and npm](https://nodejs.org/)
 - [Docker](https://www.docker.com/)
 
-### Setting Up the Environment
+### Running with docker
 
 1. Clone the repository:
 
@@ -55,18 +55,26 @@ The wallet application follows a microservices architecture to enhance scalabili
    git clone https://github.com/yourcompany/wallet-app.git
    cd WALLET-APPLICATION
    ```
-2. Start containers/services:
+2. Start utility services:
 
    With a docker deamon (I used Docker Desktop running) please run these from the project root where the docker-compose.yml file is lcoated
 
    ```bash
-   docker-compose up
+   docker-compose -f docker-compose-utilities.yml up
    ```
+3. Run create tables using SQL IDE and connection string
 
-   3. Create wallet_app_db database
+- ```
+  "Server=azure-sql-edge,1433;Initial Catalog=account_db; User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False"
+  ```
+- Go the the *Sql* folder and run the *createTables* script
 
-   - Use this string to connect to your the azure-sql instance running in dokcer from your favourite instance. Feel free so get connection details from this string if you IDE doesn't support strings : Server=localhost,4200; ``User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False``
-   - Go the the *Sql* folder and run the *createTables* script
+  5. Start Wallet App services:
+
+  With a docker deamon (I used Docker Desktop running) please run these from the project root where the docker-compose.yml file is lcoated
+- ```
+  docker-compose -f docker-compose-wallet-app.yml up
+  ```
 
 ## API Endpoints
 
@@ -112,9 +120,11 @@ Response:
 }
 ```
 
-### Transaction History
+### Transaction History 
 
 Endpoint: `GET /api/Account/{id}/transactions`
+
+**Requires Authorization - using bearer token from login**
 
 Response:
 
@@ -133,6 +143,8 @@ Response:
 ### Account Balance
 
 Endpoint: `GET /api/account/{id}/balance`
+
+Requires Authorization - using bearer token from login
 
 Response:
 
@@ -191,7 +203,7 @@ User authentication is implemented using JSON Web Tokens (JWT). The obtained tok
 The application follows a microservices architecture to achieve modularity and scalability. Each microservice handles a specific set of functionalities.
 
 1. Account Management Service
-3. Gateway
+2. Gateway
 
 ## Messaging Queue
 
