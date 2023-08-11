@@ -6,8 +6,8 @@ BEGIN
 END
 go
 
-IF DB_ID('event_account_db') IS NULL
+IF DB_ID('auth_db') IS NULL
 BEGIN
-  CREATE DATABASE event_account_db
+  CREATE DATABASE auth_db
 END
 go
