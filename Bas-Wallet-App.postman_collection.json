@@ -27,12 +27,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4202/api/authorization/Register",
+									"raw": "http://localhost:4201/api/authorization/Register",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "4202",
+									"port": "4201",
 									"path": [
 										"api",
 										"authorization",
@@ -57,12 +57,12 @@
 									}
 								},
 								"url": {
-									"raw": "http://localhost:4202/api/authorization/login",
+									"raw": "http://localhost:4201/api/authorization/login",
 									"protocol": "http",
 									"host": [
 										"localhost"
 									],
-									"port": "4202",
+									"port": "4201",
 									"path": [
 										"api",
 										"authorization",
@@ -81,21 +81,11 @@
 							"name": "Get Transactions for account Id",
 							"request": {
 								"auth": {
-									"type": "apikey",
-									"apikey": [
+									"type": "bearer",
+									"bearer": [
 										{
-											"key": "in",
-											"value": "header",
-											"type": "string"
-										},
-										{
-											"key": "value",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2OTE3NzA3MjB9.2MGkptwc3TdykQmu_c0KwPHcywB5RdFFun7QjAxBPRBohxEyTQDCW5OcLvlVxcEz9aZ0z59I4vcg8ifiFQKlCg",
-											"type": "string"
-										},
-										{
-											"key": "key",
-											"value": "bearer",
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
 											"type": "string"
 										}
 									]
@@ -122,6 +112,16 @@
 						{
 							"name": "Get balance for account id",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "GET",
 								"header": [],
 								"url": {
@@ -144,6 +144,16 @@
 						{
 							"name": "Credit Account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
@@ -175,6 +185,16 @@
 						{
 							"name": "Debit account",
 							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"type": "string"
+										}
+									]
+								},
 								"method": "PUT",
 								"header": [],
 								"body": {
