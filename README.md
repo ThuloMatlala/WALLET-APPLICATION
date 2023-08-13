@@ -17,11 +17,8 @@ Wallet Application Developer Documentation
 5. [Authentication](#authentication)
 6. [Microservices Architecture](#microservices-architecture)
 7. [Messaging Queue](#messaging-queue)
-8. [Redis Integration](#redis-integration)
-9. [Angular Frontend](#angular-frontend)
-10. [Dockerization](#dockerization)
-11. [Third-Party API Integration](#third-party-api-integration)
-12. [Conclusion](#conclusion)
+8. [Dockerization](#dockerization)
+9. [Conclusion](#conclusion)
 
 ## Introduction
 
