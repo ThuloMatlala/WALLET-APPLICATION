@@ -242,4 +242,11 @@ Azure-sql was leveraged for data storage with Entityramework as the object relat
 
 ## Dockerization
 
-Docker containers are used to ensure consistent deployment across different environments. Containers include the C# API, Angular frontend,
+Docker containers are used to ensure consistent deployment across different environments.
+
+Containers :
+
+- azure sql edge
+- Rabbitmq
+- thulomaepaa/bas-identity-service
+- thulomaepaa/bas-account-management-service
