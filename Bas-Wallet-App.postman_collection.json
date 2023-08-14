@@ -19,7 +19,7 @@
 								"header": [],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n  \"username\": \"john_doe1000\",\n  \"password\": \"P@ssw0rd\"\n}",
+									"raw": "{\n  \"username\": \"john_doe1001\",\n  \"password\": \"P@ssw0rd\"\n}",
 									"options": {
 										"raw": {
 											"language": "json"
@@ -85,7 +85,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YjFlZmFjZi1mYzBmLTQ4YjYtYTE0Yy01YmY3ZTkxZjY3NGMiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTIwMjY5NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.P1xljutzLthCO8ht4nAbwWLvCpt-8AlW3NoxaJRfYUCSzqe_zTnEesge8a1A7-sGCE2xNui5UlynrM7jgMLT5w",
 											"type": "string"
 										}
 									]
@@ -117,7 +117,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YjFlZmFjZi1mYzBmLTQ4YjYtYTE0Yy01YmY3ZTkxZjY3NGMiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTIwMjY5NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.P1xljutzLthCO8ht4nAbwWLvCpt-8AlW3NoxaJRfYUCSzqe_zTnEesge8a1A7-sGCE2xNui5UlynrM7jgMLT5w",
 											"type": "string"
 										}
 									]
@@ -149,7 +149,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YjFlZmFjZi1mYzBmLTQ4YjYtYTE0Yy01YmY3ZTkxZjY3NGMiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTIwMjY5NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.P1xljutzLthCO8ht4nAbwWLvCpt-8AlW3NoxaJRfYUCSzqe_zTnEesge8a1A7-sGCE2xNui5UlynrM7jgMLT5w",
 											"type": "string"
 										}
 									]
@@ -190,7 +190,7 @@
 									"bearer": [
 										{
 											"key": "token",
-											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI1NzY5YTBhMC02YzFmLTRmNzEtYjlhOC0xODBkZDI5ZTVhY2IiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTE4MDY4NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.Hdmq2CjY-4fs4HOFfthUI4LLeswS82IB3sydSBJcfV3JTKMx3GJsnre0pGxIqlBApm38up0mtksYbcN8aQOatQ",
+											"value": "eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTUxMiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI5YjFlZmFjZi1mYzBmLTQ4YjYtYTE0Yy01YmY3ZTkxZjY3NGMiLCJ1bmlxdWVfbmFtZSI6ImpvaG5fZG9lMTAwMCIsImFjY291bnRJZCI6IjAiLCJleHAiOjE2OTIwMjY5NTgsImlzcyI6IkpXVEF1dGhlbnRpY2F0aW9uU2VydmVyIiwiYXVkIjoiSldUU2VydmljZVBvc3RtYW5DbGllbnQifQ.P1xljutzLthCO8ht4nAbwWLvCpt-8AlW3NoxaJRfYUCSzqe_zTnEesge8a1A7-sGCE2xNui5UlynrM7jgMLT5w",
 											"type": "string"
 										}
 									]
@@ -224,35 +224,6 @@
 							"response": []
 						}
 					]
-				},
-				{
-					"name": "Publish Event",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n  \"event\": \"account.credited\",\n  \"message\" : {\n    \"accountId\" : 1,\n    \"transactionType\": \"credit\",\n    \"amount\" : 10.00\n  }\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:4201/api/Event",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "4201",
-							"path": [
-								"api",
-								"Event"
-							]
-						}
-					},
-					"response": []
 				}
 			]
 		},

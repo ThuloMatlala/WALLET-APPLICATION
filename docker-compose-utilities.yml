@@ -25,7 +25,7 @@ services:
       MSSQL_SA_PASSWORD: Str#ng_Passw#rd
       ACCEPT_EULA: Y
     ports:
-      - "1434:1433"
+      - "1433:1433"
     networks:
       - main
     volumes:

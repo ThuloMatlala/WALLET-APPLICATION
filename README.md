@@ -18,7 +18,6 @@ Wallet Application Developer Documentation
 6. [Microservices Architecture](#microservices-architecture)
 7. [Messaging Queue](#messaging-queue)
 8. [Dockerization](#dockerization)
-9. [Conclusion](#conclusion)
 
 ## Introduction
 
@@ -59,12 +58,12 @@ The wallet application follows a microservices architecture to enhance scalabili
    ```bash
    docker-compose -f docker-compose-utilities.yml up
    ```
-3. Run create tables using SQL IDE and connection string
+3. Run create tables using a SQL IDE of your choice and this connection string
 
 - ```
-  "Server=azure-sql-edge,1433;Initial Catalog=account_db; User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False"
+  "Server=localhost,1433;User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False"
   ```
-- Go the the *Sql* folder and run the *createTables* script
+- Go the the *Sql* folder and run the *createTables* script from your selected Sql IDE
 
   5. Start Wallet App services:
 
@@ -92,8 +91,11 @@ Response:
 
 ```json
 {
-  "message": "User registered successfully."
+    "accountId": 1,
+    "username": "john_doe1000",
+    "balance": 0
 }
+
 ```
 
 ### User Login
@@ -159,7 +161,7 @@ Request Body:
 
 ```json
 {
-  "amount": 50
+  "amount": 50.00
 }
 ```
 
@@ -167,7 +169,7 @@ Response:
 
 ```json
 {
-  "message": "Account credited successfully."
+  "message": 100.00
 }
 ```
 
@@ -179,7 +181,7 @@ Request Body:
 
 ```json
 {
-  "amount": 30
+  "amount": 30.00
 }
 ```
 
@@ -187,7 +189,7 @@ Response:
 
 ```json
 {
-  "message": "Account debited successfully."
+  "message": 300.00
 }
 ```
 
@@ -206,32 +208,10 @@ The application follows a microservices architecture to achieve modularity and s
 
 A messaging queue, such as RabbitMQ, is used for communication between microservices. This ensures loose coupling and asynchronous processing.
 
-Endpoint: `POST /api/Event`
-
-Request body :
-
-```{
-{
-  "event": "account.credited",
-  "message" : {
-    "transactionType": "credit",
-    "amount" : 10.00
-  }
-}
-```
-
-Response body :
-
-```{
-{  
-"message" : "Message published"
-}
-```
-
 ###### Events
 
-- account.credited
-- account.debited
+- account.created
+  - triggered by the Identity server
 
 ## Persistence
 
