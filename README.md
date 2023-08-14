@@ -17,11 +17,7 @@ Wallet Application Developer Documentation
 5. [Authentication](#authentication)
 6. [Microservices Architecture](#microservices-architecture)
 7. [Messaging Queue](#messaging-queue)
-8. [Redis Integration](#redis-integration)
-9. [Angular Frontend](#angular-frontend)
-10. [Dockerization](#dockerization)
-11. [Third-Party API Integration](#third-party-api-integration)
-12. [Conclusion](#conclusion)
+8. [Dockerization](#dockerization)
 
 ## Introduction
 
@@ -62,12 +58,12 @@ The wallet application follows a microservices architecture to enhance scalabili
    ```bash
    docker-compose -f docker-compose-utilities.yml up
    ```
-3. Run create tables using SQL IDE and connection string
+3. Run create tables using a SQL IDE of your choice and this connection string
 
 - ```
-  "Server=azure-sql-edge,1433;Initial Catalog=account_db; User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False"
+  "Server=localhost,1433;User ID=sa;Password=Str#ng_Passw#rd;Persist Security Info=False;Encrypt=False"
   ```
-- Go the the *Sql* folder and run the *createTables* script
+- Go the the *Sql* folder and run the *createTables* script from your selected Sql IDE
 
   5. Start Wallet App services:
 
@@ -95,8 +91,11 @@ Response:
 
 ```json
 {
-  "message": "User registered successfully."
+    "accountId": 1,
+    "username": "john_doe1000",
+    "balance": 0
 }
+
 ```
 
 ### User Login
@@ -120,7 +119,7 @@ Response:
 }
 ```
 
-### Transaction History 
+### Transaction History
 
 Endpoint: `GET /api/Account/{id}/transactions`
 
@@ -162,7 +161,7 @@ Request Body:
 
 ```json
 {
-  "amount": 50
+  "amount": 50.00
 }
 ```
 
@@ -170,7 +169,8 @@ Response:
 
 ```json
 {
-  "message": "Account credited successfully."
+  "userAccountId": 1
+  "balance": 50.00
 }
 ```
 
@@ -182,7 +182,7 @@ Request Body:
 
 ```json
 {
-  "amount": 30
+  "amount": 30.00
 }
 ```
 
@@ -190,7 +190,8 @@ Response:
 
 ```json
 {
-  "message": "Account debited successfully."
+  "userAccountId": 1
+  "balance": 50.00
 }
 ```
 
@@ -209,47 +210,22 @@ The application follows a microservices architecture to achieve modularity and s
 
 A messaging queue, such as RabbitMQ, is used for communication between microservices. This ensures loose coupling and asynchronous processing.
 
-Endpoint: `POST /api/Event`
-
-Request body :
-
-```{
-{
-  "event": "account.credited",
-  "message" : {
-    "transactionType": "credit",
-    "amount" : 10.00
-  }
-}
-```
-
-Response body :
-
-```{
-{  
-"message" : "Message published"
-}
-```
-
 ###### Events
 
-- account.credited
-- account.debited
+- account.created
+  - triggered by the Identity server
 
 ## Persistence
 
 Azure-sql was leveraged for data storage with Entityramework as the object relational mapper.
 
-## Redis Integration
-
-Redis is integrated as an in-memory caching solution to enhance performance and reduce database load.
-
-## Angular Frontend
-
-The Angular frontend provides users with a visual interface to interact with their wallet accounts, view transaction history, and perform account actions.
-
-[Tailwind CCS](https://tailwindcss.com/docs/guides/angular) was chosen for styling. It being a short-hand styling framework will help get styling done without thinking about it too much
-
 ## Dockerization
 
-Docker containers are used to ensure consistent deployment across different environments. Containers include the C# API, Angular frontend,
+Docker containers are used to ensure consistent deployment across different environments.
+
+Containers :
+
+- azure sql edge
+- Rabbitmq
+- thulomaepaa/bas-identity-service
+- thulomaepaa/bas-account-management-service

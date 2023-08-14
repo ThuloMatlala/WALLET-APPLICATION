@@ -25,36 +25,8 @@ services:
       MSSQL_SA_PASSWORD: Str#ng_Passw#rd
       ACCEPT_EULA: Y
     ports:
-      - "1434:1433"
+      - "1433:1433"
     networks:
       - main
     volumes:
       - sqlserver_data:/var/lib/azsql/data
-  
-  # account-management-service:
-  #   image: thulomaepaa/bas-account-management-service:latest
-  #   container_name: account-management-service
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Production
-  #   ports:
-  #     - "4202:80"
-  #   networks:
-  #     - main
-  #   depends_on:
-  #     - azure-sql-edge
-  #     - rabbitmq
-  #     - redis
-  
-  # identity-service:
-  #   image: thulomaepaa/bas-identity-service:latest
-  #   container_name: identity-service
-  #   environment:
-  #     - ASPNETCORE_ENVIRONMENT=Production
-  #   ports:
-  #     - "4201:80"
-  #   networks:
-  #     - main
-  #   depends_on:
-  #     - azure-sql-edge
-  #     - rabbitmq
-  #     - redis
