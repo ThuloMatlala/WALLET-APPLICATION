@@ -169,7 +169,8 @@ Response:
 
 ```json
 {
-  "message": 100.00
+  "userAccountId": 1
+  "balance": 50.00
 }
 ```
 
@@ -189,7 +190,8 @@ Response:
 
 ```json
 {
-  "message": 300.00
+  "userAccountId": 1
+  "balance": 50.00
 }
 ```
 
